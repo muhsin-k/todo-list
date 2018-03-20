@@ -7,7 +7,7 @@ const Logo = (props) => {
   return (
     <span className={`Logo Logo--${props.size}`}>
       <Link to="/" className="Logo__link">
-        Live-Support
+        To Do List
       </Link>
     </span>
   );

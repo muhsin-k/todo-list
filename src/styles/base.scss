@@ -1,34 +1,12 @@
-$fa-font-path: '~font-awesome/fonts';
-@import 'font-awesome/scss/font-awesome';
-
-@import 'settings';
-@import 'foundation-sites/scss/foundation';
-@import 'react-redux-toastr/src/styles/index';
-// don't need everything
-// @include foundation-everything(false); // argument to enable flex mode
-
-@include foundation-global-styles;
-@include foundation-grid;
-@include foundation-typography;
-@include foundation-forms;
-@include foundation-button;
-@include foundation-visibility-classes;
-@include foundation-float-classes;
-// @include foundation-xy-grid-classes;
 .button {
   display: inline-block;
   padding: 0.5rem 3rem;
-  background: $primary-color;
   color: #fff !important;
   font-weight: 100;
   font-size: 1.2rem;
   letter-spacing: 0.03rem;
-  border: 1px solid scale-color($primary-color, $lightness: -20%);
   border-bottom-width: 2px;
   border-radius: 0.2rem;
-  &:hover {
-    background: scale-color($primary-color, $lightness: -20%);
-  }
 
   &--submit {
     margin: 1rem 0;

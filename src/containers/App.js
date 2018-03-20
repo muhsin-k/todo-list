@@ -3,12 +3,12 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import LoadingBar, { showLoading, hideLoading } from 'react-redux-loading-bar';
-import ReduxToastr, { toastr } from 'react-redux-toastr';
-
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap-theme.css';
 import Header from './header/Header';
 import Footer from './footer/Footer';
 import Routes from './Routes';
-
+import { PageHeader } from 'react-bootstrap';
 import '../styles/base.css';
 
 class App extends Component {
@@ -16,8 +16,7 @@ class App extends Component {
     this.props.showLoading();
     setTimeout(() => {
       this.props.hideLoading();
-      toastr.success('Welcome', 'Welcome to Live Support');
-    }, 1000);
+    }, 5000);
   }
 
   render() {
@@ -28,15 +27,6 @@ class App extends Component {
             backgroundColor: '#6BC090',
             height: '2px',
           }}
-        />
-        <ReduxToastr
-          timeOut={4000}
-          newestOnTop={false}
-          preventDuplicates
-          position="top-right"
-          transitionIn="fadeIn"
-          transitionOut="fadeOut"
-          progressBar={false}
         />
         {this.props.isHeaderFooterActive() && <Header />}
         <Routes />

@@ -11,23 +11,6 @@ class Home extends Component {
             <div className="row start-chat__main-heading">
               <h4>Start a Live Chat</h4>
             </div>
-            <div className="row">
-              <h6>How can we help you today?</h6>
-            </div>
-            <div className="row ">
-              <textarea
-                className="start-chat__start_text"
-                placeholder="Please type here...."
-              />
-            </div>
-            <div className="row">
-              <a
-                className="button small expanded start-chat__start_call"
-                href="home"
-              >
-                Start Call
-              </a>
-            </div>
           </div>
           <div className="columns small-1 large-3 " />
         </div>
