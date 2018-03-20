@@ -8,7 +8,6 @@ import 'bootstrap/dist/css/bootstrap-theme.css';
 import Header from './header/Header';
 import Footer from './footer/Footer';
 import Routes from './Routes';
-import { PageHeader } from 'react-bootstrap';
 import '../styles/base.css';
 
 class App extends Component {

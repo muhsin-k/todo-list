@@ -20,7 +20,7 @@ const Root = ({ store }) => (
 // registerServiceWorker();
 
 Root.propTypes = {
-  store: PropTypes.object.isRequired,
+  store: PropTypes.shape.isRequired,
 };
 
 export default Root;
