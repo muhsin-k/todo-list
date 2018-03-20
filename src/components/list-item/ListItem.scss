@@ -1,0 +1,28 @@
+.ListItem {
+  list-style: none;
+  margin: 0;
+  font-size: 1rem;
+  // border: 1px solid red;
+  &__link {
+    font-family: 'Arial';
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    line-height: 1rem;
+    text-align: left;
+    color: #555;
+    padding: 0.5em 0.5em;
+    text-decoration: none;
+    // border: 1px solid green;
+  }
+  &__link:hover {
+    background-color: #f3f3f3;
+    color: #555;
+  }
+  &__icon {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 1.1em;
+    margin-right: 0.2em;
+  }
+}

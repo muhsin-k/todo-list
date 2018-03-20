@@ -1,0 +1,20 @@
+// //
+// // overriding foundation styles
+// // --------------------------------
+
+@import 'foundation-sites/scss/util/util';
+// 1. Global
+// ---------
+$foundation-palette: (
+  primary:#6bc090,
+  secondary: #767676,
+  success: #3adb76,
+  warning: #ffae00,
+  alert: #cc4b37
+);
+@include add-foundation-colors;
+
+//
+// app specific
+// -------------------
+$theme-color: red;

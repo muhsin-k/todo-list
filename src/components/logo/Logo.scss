@@ -1,0 +1,25 @@
+// define custom fonts
+@font-face {
+  font-family:'LogoFont';
+  src: url('./PoetsenOne-Regular.ttf');
+}
+
+.Logo {
+  font-family: 'LogoFont';
+  // font-size: 1.3rem;
+  padding: 0.3rem;
+  display: inline-block;
+  &--small {
+    font-size: 1.3em;
+  } 
+  &--large {
+    font-size: 2em;
+  } 
+  &__link{
+    color: #888!important;
+  }
+  &__highlight {
+    color: #6BC090;
+    font-style: normal;
+  }
+}

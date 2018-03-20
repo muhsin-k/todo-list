@@ -1,0 +1,37 @@
+.Popup {
+  // display: none;
+  position: absolute;
+  // top: 0;
+  // left: 0;
+  border: 1px solid #ddd; 
+  box-shadow: 0 1px 7px rgba(0,0,0,.05);
+  font-size: 1rem;
+  z-index: 10;
+  padding-top: 0.3rem;
+  background-color: #fff;
+
+  &__content {
+    margin: 0;
+    min-width: 10em;
+    min-height: 5em;
+    background-color: #fff!important;
+    padding: 0;    
+  }
+
+  &__cue {
+    display: inline-block;
+    padding: 0.4em;
+    position: absolute;
+    top: -0.5em;
+    left: 4em;
+    z-index: -1;
+    color: #fff;
+    background: #fff;
+    transform: rotate(-135deg);
+
+    border: 1px solid #ddd;
+    border: 1px solid #ddd;
+    border-left: none;
+    border-top: none;
+  }
+}
