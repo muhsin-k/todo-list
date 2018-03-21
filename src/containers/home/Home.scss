@@ -1,1 +1,27 @@
+.product-pitch {
+  font-size: 1.3rem;
+  background: #fff;
+  padding: 10px;
+  padding-bottom: 3em;
 
+  &__visual {
+    height: 5em;
+    width: 5em;
+    border-radius: 50%;
+    // border:2px solid #ddd;
+    margin: auto;
+  }
+  &__text {
+    font-weight: 100;
+    font-size: 1.2em;
+    // border: 1px solid;
+    text-align: center;
+    margin-top: 0.2em;
+  }
+
+  &__icon {
+    font-size: 3.5em !important;
+    color: #fff;
+    padding: 0.2em 0.2em 0.2em 0.28em;
+  }
+}

@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import LoadingBar, { showLoading, hideLoading } from 'react-redux-loading-bar';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
+import 'font-awesome/css/font-awesome.css';
 import Header from './header/Header';
 import Footer from './footer/Footer';
 import Routes from './Routes';
