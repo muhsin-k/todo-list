@@ -9,9 +9,11 @@ import CompleteTodoItem from '../../components/complete-todo-item/CompleteTodoIt
 class Home extends Component {
   render() {
     return (
-      <div className="product-pitch">
+      <div className="todo">
         <Grid>
-          <Row className="show-grid">Active</Row>
+          <Row className="show-grid todo-type">
+            <strike>Completed</strike>
+          </Row>
         </Grid>
         <Grid>
           <Row className="show-grid">
@@ -19,7 +21,7 @@ class Home extends Component {
           </Row>
         </Grid>
         <Grid>
-          <Row className="show-grid">Completed</Row>
+          <Row className="show-grid todo-type">Active</Row>
         </Grid>
         <Grid>
           <Row className="show-grid">

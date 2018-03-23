@@ -11,7 +11,7 @@ const CompleteTodoItem = (props) => {
           <div className="circleBase" />
         </Col>
         <Col xs={6} md={6}>
-          {props.todoTitle}
+          <strike>{props.todoTitle}</strike>
         </Col>
         <Col xs={2} md={2}>
           <i className="fa fa-pencil" />

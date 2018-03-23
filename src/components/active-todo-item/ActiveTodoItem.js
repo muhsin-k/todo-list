@@ -10,13 +10,13 @@ const ActiveTodoItem = (props) => {
         <Col xs={2} md={2}>
           <div className="circleBase" />
         </Col>
-        <Col xs={6} md={6}>
-          <strike>{props.todoTitle}</strike>
+        <Col xs={6} md={6} className="todo-text">
+          {props.todoTitle}
         </Col>
-        <Col xs={2} md={2}>
+        <Col xs={2} md={2} className="todo-icon">
           <i className="fa fa-pencil" />
         </Col>
-        <Col xs={2} md={2}>
+        <Col xs={2} md={2} className="todo-icon">
           <i className="fa fa-trash-o" />
         </Col>
       </Row>
