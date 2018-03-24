@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 //Simple cookie-based session middleware
 const cookieSession = require("cookie-session");
 const bodyParser = require("body-parser");
+const passport = require("passport");
 const keys = require("./config/keys");
 
 //Connect to MongoDB
@@ -15,8 +16,10 @@ mongoose.connect(keys.mongoURI, {
 require("./models/User");
 require("./models/Item");
 require("./services/cache");
+require("./services/passport");
 const app = express();
-
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(bodyParser.json());
 app.use(
   cookieSession({

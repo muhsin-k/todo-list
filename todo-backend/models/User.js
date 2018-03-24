@@ -5,6 +5,8 @@ const userSchema = new Schema({
   googleId: String,
   displayName: String,
   userName: String,
+  emailId: String,
+  profilePic: String,
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now }
 });

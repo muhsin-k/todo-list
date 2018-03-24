@@ -11,8 +11,8 @@ class Header extends Component {
         </Link>
       </li>,
       <li key="2">
-        <a href={"/auth/logout"} className="header-item">
-          Logout
+        <a href={"http://localhost:5000/auth/google"} className="header-item">
+          Login
         </a>
       </li>
     ];
