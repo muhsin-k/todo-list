@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import TodoItem from "./todo-item/TodoItem";
+import TodoItem from "../todo-item/TodoItem";
+import "./DashBoard.css";
 const Dashboard = () => {
   return (
     <div className="dashboard">

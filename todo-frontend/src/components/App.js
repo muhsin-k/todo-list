@@ -3,10 +3,10 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actions from "../actions";
 
-import Header from "./Header";
+import Header from "./header/Headers";
 import Landing from "./Landing";
-import Dashboard from "./Dashboard";
-
+import Dashboard from "./dashboard/DashBoard";
+import "./styles.css";
 class App extends Component {
   componentDidMount() {
     // this.props.fetchUser();

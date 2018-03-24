@@ -1,22 +1,26 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-
+import "./Header.css";
 class Header extends Component {
   renderContent() {
     return [
       <li key="3" style={{ margin: "0 10px" }}>
-        <Link to="/blogs">My Blogs</Link>
+        <Link to="/home" className="header-item">
+          My List
+        </Link>
       </li>,
       <li key="2">
-        <a href={"/auth/logout"}>Logout</a>
+        <a href={"/auth/logout"} className="header-item">
+          Logout
+        </a>
       </li>
     ];
   }
 
   render() {
     return (
-      <nav className="indigo">
+      <nav className="white z-depth-0">
         <div className="nav-wrapper">
           <Link
             to={this.props.auth ? "/blogs" : "/"}
