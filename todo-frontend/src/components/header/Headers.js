@@ -4,18 +4,28 @@ import { Link } from "react-router-dom";
 import "./Header.css";
 class Header extends Component {
   renderContent() {
-    return [
-      <li key="3" style={{ margin: "0 10px" }}>
-        <Link to="/home" className="header-item">
-          My List
-        </Link>
-      </li>,
-      <li key="2">
-        <a href={"http://localhost:5000/auth/google"} className="header-item">
-          Login
-        </a>
-      </li>
-    ];
+    if (this.props.auth) {
+      return [
+        <li key="3" style={{ margin: "0 10px" }}>
+          <Link to="/home" className="header-item">
+            My List
+          </Link>
+        </li>,
+        <li key="2">
+          <a href={"auth/logout"} className="header-item">
+            Logout
+          </a>
+        </li>
+      ];
+    } else {
+      return [
+        <li key="2">
+          <a href={"http://localhost:5000/auth/google"} className="header-item">
+            Login
+          </a>
+        </li>
+      ];
+    }
   }
 
   render() {

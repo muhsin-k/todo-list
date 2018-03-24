@@ -4,7 +4,6 @@ const Item = mongoose.model("Item");
 
 module.exports = app => {
   app.get("/api/items", async (req, res) => {
-    console.log("Req.User", req.user);
     const items = await Item.find({ _user: req.user.id }).cache({
       key: req.params.id
     });
