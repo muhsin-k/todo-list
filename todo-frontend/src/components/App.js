@@ -9,7 +9,7 @@ import Dashboard from "./dashboard/DashBoard";
 import "./styles.css";
 class App extends Component {
   componentDidMount() {
-    // this.props.fetchUser();
+    this.props.fetchUser();
   }
 
   render() {

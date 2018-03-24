@@ -3,7 +3,19 @@ const mongoose = require("mongoose");
 const Item = mongoose.model("Item");
 
 module.exports = app => {
-  app.get("/api/item/:id", async (req, res) => {
+  app.get("/api/items/:id", async (req, res) => {
+    const items = await Item.find({ _user: req.params.id }).cache({
+      key: req.params.id
+    });
+    res.status(200).json(items);
+  });
+  app.put("/api/items/:id", async (req, res) => {
+    const items = await Item.find({ _user: req.params.id }).cache({
+      key: req.params.id
+    });
+    res.status(200).json(items);
+  });
+  app.delete("/api/items/:id", async (req, res) => {
     const items = await Item.find({ _user: req.params.id }).cache({
       key: req.params.id
     });

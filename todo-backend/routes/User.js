@@ -14,21 +14,11 @@ module.exports = app => {
     "/auth/google/callback",
     passport.authenticate("google"),
     (req, res) => {
-      res.redirect("/home");
+      res.redirect("http://localhost:3000/home");
     }
   );
 
-  app.post("/api/user", async (req, res) => {
-    const { googleId } = req.body;
-    const user = new User({
-      googleId
-    });
-
-    try {
-      await user.save();
-      res.status(200).send(user);
-    } catch (err) {
-      res.status(401).send(err);
-    }
+  app.get("/api/user", async (req, res) => {
+    res.status(200).send(req.user);
   });
 };
