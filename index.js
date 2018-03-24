@@ -1,15 +1,16 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const cookieSession = require('cookie-session');
-const passport = require('passport');
-const bodyParser = require('body-parser');
-const keys = require('./config/keys');
+const express = require("express");
+const mongoose = require("mongoose");
+//Simple cookie-based session middleware
+const cookieSession = require("cookie-session");
+const passport = require("passport");
+const bodyParser = require("body-parser");
+const keys = require("./config/keys");
 
-require('./models/User');
-require('./models/Blog');
-require('./services/passport');
-require('./services/cache');
-
+require("./models/User");
+require("./models/Blog");
+require("./services/passport");
+require("./services/cache");
+//Connect to MongoDB
 mongoose.Promise = global.Promise;
 mongoose.connect(keys.mongoURI, { useMongoClient: true });
 
@@ -25,18 +26,8 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-require('./routes/authRoutes')(app);
-require('./routes/blogRoutes')(app);
-require('./routes/uploadRoutes')(app);
-
-if (['production', 'ci'].includes(process.env.NODE_ENV)) {
-  app.use(express.static('client/build'));
-
-  const path = require('path');
-  app.get('*', (req, res) => {
-    res.sendFile(path.resolve('client', 'build', 'index.html'));
-  });
-}
+require("./routes/authRoutes")(app);
+require("./routes/blogRoutes")(app);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

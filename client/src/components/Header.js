@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 class Header extends Component {
   renderContent() {
@@ -10,16 +10,16 @@ class Header extends Component {
       case false:
         return (
           <li>
-            <a href={'/auth/google'}>Login With Google</a>
+            <a href={"/auth/google"}>Login With Google</a>
           </li>
         );
       default:
         return [
-          <li key="3" style={{ margin: '0 10px' }}>
+          <li key="3" style={{ margin: "0 10px" }}>
             <Link to="/blogs">My Blogs</Link>
           </li>,
           <li key="2">
-            <a href={'/auth/logout'}>Logout</a>
+            <a href={"/auth/logout"}>Logout</a>
           </li>
         ];
     }
@@ -30,11 +30,11 @@ class Header extends Component {
       <nav className="indigo">
         <div className="nav-wrapper">
           <Link
-            to={this.props.auth ? '/blogs' : '/'}
+            to={this.props.auth ? "/blogs" : "/"}
             className="left brand-logo"
-            style={{ marginLeft: '10px' }}
+            style={{ marginLeft: "10px" }}
           >
-            Blogster
+            To Do List
           </Link>
           <ul className="right">{this.renderContent()}</ul>
         </div>
