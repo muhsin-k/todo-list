@@ -19,8 +19,6 @@ require("./models/Item");
 require("./services/cache");
 require("./services/passport");
 const app = express();
-app.use(passport.initialize());
-app.use(passport.session());
 app.use(bodyParser.json());
 app.use(
   cookieSession({
@@ -28,6 +26,9 @@ app.use(
     keys: [keys.cookieKey]
   })
 );
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
