@@ -3,14 +3,6 @@
 # dependencies
 node_modules/
 
-# testing
-/coverage
-
-# production
-/build
-
-# development
-src/**/*.css
 
 # misc
 .DS_Store
