@@ -27,6 +27,31 @@ module.exports = app => {
     });
     res.status(200).json(items);
   });
+  app.put("/api/item", cleanCache, async (req, res) => {
+    const { _id, isActive } = req.body;
+    const item = await Item.findOne({ _id: _id });
+    console.log("item", item);
+    if (item) {
+      try {
+        item.isActive = isActive;
+        await item.save();
+        res.status(200).json(item);
+      } catch (err) {
+        res.status(401).json(err);
+      }
+    } else {
+      res.status(404).json("Invalid item Id");
+    }
+  });
+  app.post("/api/deleteitem", cleanCache, async (req, res) => {
+    const { _id } = req.body;
+    try {
+      const item = await Item.remove({ _id: _id });
+      res.status(200).json(item);
+    } catch (err) {
+      res.status(401).json(err);
+    }
+  });
 
   app.post("/api/item", cleanCache, async (req, res) => {
     const { title, _user } = req.body;

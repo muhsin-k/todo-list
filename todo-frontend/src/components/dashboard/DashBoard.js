@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import TodoItem from "../todo-item/TodoItem";
-import { fetchAllItems } from "../../actions/index";
+import { fetchAllItems, updateItem, deleteItem } from "../../actions/index";
 import "./DashBoard.css";
 class Dashboard extends Component {
   constructor(props) {
@@ -13,8 +13,17 @@ class Dashboard extends Component {
     this.props.fetchAllItems();
   }
   changeTodoStatus(key) {
-    console.log("Clicked:", key);
+    this.props.updateItem({
+      _id: key.todoId,
+      isActive: !key.todoActive
+    });
   }
+  deleteItem(key) {
+    this.props.deleteItem({
+      _id: key.todoId
+    });
+  }
+
   renderItems() {
     if (this.props.items.allItems) {
       return (
@@ -26,6 +35,7 @@ class Dashboard extends Component {
               todoId={item._id}
               key={item._id}
               changeTodoStatus={this.changeTodoStatus.bind(this)}
+              deleteItem={this.deleteItem.bind(this)}
             />
           ))}
 
@@ -65,7 +75,9 @@ class Dashboard extends Component {
 }
 function bindAction(dispatch) {
   return {
-    fetchAllItems: () => dispatch(fetchAllItems())
+    fetchAllItems: () => dispatch(fetchAllItems()),
+    updateItem: obj => dispatch(updateItem(obj)),
+    deleteItem: obj => dispatch(deleteItem(obj))
   };
 }
 function mapStateToProps(state) {

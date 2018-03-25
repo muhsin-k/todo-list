@@ -21,6 +21,10 @@ yarn install
 yarn run server
 ```
 
+# Tasks pending
+
+* Change all apis to helper/APIHelper
+
 ## License
 
 MIT
