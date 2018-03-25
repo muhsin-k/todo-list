@@ -23,6 +23,7 @@ yarn run server
 
 # Tasks pending
 
+* Update to do text
 * Change all apis to helper/APIHelper
 
 ## License
