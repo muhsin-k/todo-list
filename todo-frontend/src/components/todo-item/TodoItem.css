@@ -1,25 +1,52 @@
-.TodoItem {
-  padding: 1.3rem;
+.active-todo-item {
+  padding: 1rem;
   height: 50px;
   border-radius: 5px;
+  margin-top: 10px;
   background: linear-gradient(to right, #ff6378, #ff824e);
 }
 
-.circleBase {
+.in-active-todo-item {
+  padding: 1rem;
+  height: 50px;
+  border-radius: 5px;
+  margin-top: 10px;
+  color: gray !important;
+  background: linear-gradient(to right, #f3eced, #efdcd5);
+}
+
+.todo-active-circle {
   border-radius: 50%;
   width: 25px;
   height: 25px;
   border: 1px solid white;
 }
-
-.todo-text {
-  color: white;
-  font-size: 1rem;
-  /* margin-top: 0px; */
+.todo-in-active-circle {
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  background-color: gray;
+  border: 1px solid gray;
 }
 
-.todo-icon {
+.todo-active-text {
   color: white;
+  font-size: 1rem;
+  margin-top: 2px;
+}
+.todo-in-active-text {
+  color: #b9abab;
+  font-size: 1rem;
+  margin-top: 2px;
+}
+
+.todo-active-icon {
+  color: white;
+  font-size: 1.6em;
+  margin-top: -4px;
+}
+.todo-in-active-icon {
+  color: #b9abab;
   font-size: 1.6em;
   margin-top: -4px;
 }

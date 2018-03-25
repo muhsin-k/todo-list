@@ -3,22 +3,43 @@ import PropTypes from "prop-types";
 import "./TodoItem.css";
 
 const ActiveTodoItem = props => {
-  return (
-    <div className="TodoItem">
-      <div className="row">
-        <div className="col s2">
-          <div className="circleBase" />
-        </div>
-        <div className="col s6 todo-text">{props.todoTitle}</div>
-        <div className="col s2 todo-icon">
-          <i className="small material-icons">edit</i>
-        </div>
-        <div className="col s2 todo-icon">
-          <i className="small material-icons">delete</i>
+  if (props.todoActive) {
+    return (
+      <div className="active-todo-item">
+        <div className="row">
+          <div className="col s2">
+            <div className="todo-active-circle" />
+          </div>
+          <div className="col s6 todo-active-text">{props.todoTitle}</div>
+          <div className="col s2 todo-active-icon">
+            <i className="small material-icons">edit</i>
+          </div>
+          <div className="col s2 todo-active-icon">
+            <i className="small material-icons">delete</i>
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    return (
+      <div className="in-active-todo-item">
+        <div className="row">
+          <div className="col s2">
+            <div className="todo-in-active-circle" />
+          </div>
+          <div className="col s6 todo-in-active-text">
+            <strike>{props.todoTitle}</strike>
+          </div>
+          <div className="col s2 todo-in-active-icon">
+            <i className="small material-icons">edit</i>
+          </div>
+          <div className="col s2 todo-in-active-icon">
+            <i className="small material-icons">delete</i>
+          </div>
+        </div>
+      </div>
+    );
+  }
 };
 
 ActiveTodoItem.propTypes = {
