@@ -1,7 +1,12 @@
 .dashboard {
   margin-top: 20px;
+  text-align: center;
 }
 .todoType {
   color: #e63149;
   margin: 9px 0px;
+}
+.spinner-green,
+.spinner-green-only {
+  border-color: #e63149 !important;
 }

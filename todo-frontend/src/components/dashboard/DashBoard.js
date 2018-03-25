@@ -5,21 +5,27 @@ import TodoItem from "../todo-item/TodoItem";
 import { fetchAllItems } from "../../actions/index";
 import "./DashBoard.css";
 class Dashboard extends Component {
+  constructor(props) {
+    super(props);
+    this.changeTodoStatus = this.changeTodoStatus.bind(this);
+  }
   componentDidMount() {
     this.props.fetchAllItems();
   }
-
-  render() {
-    if (!this.props.items.allItems) {
-      return <div className="todoType">Completed</div>;
-    } else {
+  changeTodoStatus(key) {
+    console.log("Clicked:", key);
+  }
+  renderItems() {
+    if (this.props.items.allItems) {
       return (
         <div className="dashboard">
           {this.props.items.allItems.map((item, i) => (
             <TodoItem
               todoTitle={item.title}
               todoActive={item.isActive}
+              todoId={item._id}
               key={item._id}
+              changeTodoStatus={this.changeTodoStatus.bind(this)}
             />
           ))}
 
@@ -30,6 +36,30 @@ class Dashboard extends Component {
           </div>
         </div>
       );
+    }
+  }
+
+  render() {
+    if (this.props.items.isFetching) {
+      return (
+        <div className="dashboard">
+          <div className="preloader-wrapper small active">
+            <div className="spinner-layer spinner-green-only">
+              <div className="circle-clipper left">
+                <div className="circle" />
+              </div>
+              <div className="gap-patch">
+                <div className="circle" />
+              </div>
+              <div className="circle-clipper right">
+                <div className="circle" />
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    } else {
+      return <div>{this.renderItems()}</div>;
     }
   }
 }
