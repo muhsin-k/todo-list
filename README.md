@@ -22,7 +22,7 @@ yarn run server
 ```
 
 ## ☑ TODO
-- [] Edit Option
+- [ ] Edit Option
 - [] Divide active and non-active items
 - [] Change all apis to helper/APIHelper
 - [] Add PWA support
