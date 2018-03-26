@@ -24,10 +24,15 @@ yarn run server
 ```
 
 ## ☑ TODO
-- [ ] Edit Option
-- [ ] Divide active and non-active items
-- [ ] Change all apis to helper/APIHelper
-- [ ] Add PWA support
+
+* [ ] Confirm box for delete item
+* [ ] Home Page
+* [ ] Edit items
+* [ ] Divide active and non-active items
+* [ ] Documentation
+* [ ] Code beautification
+* [ ] Change all apis to helper/APIHelper
+* [ ] Add PWA support
 
 ## License
 
