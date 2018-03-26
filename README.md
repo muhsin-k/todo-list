@@ -21,12 +21,11 @@ yarn install
 yarn run server
 ```
 
-# Tasks pending
-
-* Edit Option
-* Divide active and non-active items
-* Change all apis to helper/APIHelper
-* Add PWA support
+## ☑ TODO
+- [] Edit Option
+- [] Divide active and non-active items
+- [] Change all apis to helper/APIHelper
+- [] Add PWA support
 
 ## License
 
