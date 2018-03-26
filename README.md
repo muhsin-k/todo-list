@@ -23,7 +23,7 @@ yarn run server
 
 # Tasks pending
 
-* Update to do text
+* Edit Option
 * Divide active and non-active items
 * Change all apis to helper/APIHelper
 * Add PWA support

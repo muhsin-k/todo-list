@@ -22,6 +22,16 @@ export const fetchAllItems = () => async dispatch => {
   dispatch({ type: ALL_ITEMS, payload: res.data });
   dispatch({ type: COMPLETE_ITEM_FETCH });
 };
+export const addItem = obj => async dispatch => {
+  const res = await axios.post("/api/item", obj);
+
+  dispatch({ type: UPDATE_ITEM, payload: res.data });
+  dispatch({ type: INIT_ITEM_FETCH });
+  const res2 = await axios.get("/api/items");
+
+  dispatch({ type: ALL_ITEMS, payload: res2.data });
+  dispatch({ type: COMPLETE_ITEM_FETCH });
+};
 export const updateItem = obj => async dispatch => {
   const res = await axios.put("/api/item", obj);
 

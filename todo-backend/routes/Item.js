@@ -54,7 +54,8 @@ module.exports = app => {
   });
 
   app.post("/api/item", cleanCache, async (req, res) => {
-    const { title, _user } = req.body;
+    const { title } = req.body;
+    const _user=req.user.id;
     const item = new Item({
       title,
       _user

@@ -10,3 +10,10 @@
 .spinner-green-only {
   border-color: #e63149 !important;
 }
+.todo-add-submit {
+  background-color: #ff824e !important;
+}
+
+.todo-add-cancel {
+  background-color: #607d8b !important;
+}
