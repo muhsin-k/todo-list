@@ -69,6 +69,12 @@ yarn install
 yarn run server
 ```
 
+## Demo
+
+Check out the demo project for a quick example of how NSGIF works. After you capture your video, this is what you have to do, to retrieve the GIF:
+
+![NSGIF](https://dl.dropboxusercontent.com/s/p02c6l7rzk6mf6m/NSGIF-HT.gif?dl=0)
+
 ## ☑ TODO
 
 * [x] Confirm box for delete item
