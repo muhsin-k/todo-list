@@ -25,7 +25,7 @@ yarn run server
 
 ## ☑ TODO
 
-* [*] Confirm box for delete item
+* [x] Confirm box for delete item
 * [ ] Home Page
 * [ ] Edit items
 * [ ] Divide active and non-active items
