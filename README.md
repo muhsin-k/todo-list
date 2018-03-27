@@ -27,6 +27,16 @@
   <sub>Built with ❤︎ by
   <a href="https://twitter.com/muhsinkeramam">Muhsin.K</a> 
 </div>
+  
+  
+## Features
+
+- Written in uncomplicated Go (Golang)
+- No installation necessary - just use the [binary](https://github.com/karan/joe#installation).
+- Stupidly [easy to use](https://github.com/karan/joe#usage)
+- Supports all Github-supported [`.gitignore` files](https://github.com/karan/joe#list-all-available-files)
+- Works on Mac, Linux and (maybe) Windows
+- Supports other version control systems (`.hgignore`)
 
 ## Architecture
 
