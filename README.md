@@ -23,6 +23,11 @@
 </p>
 
 
+<div align="center">
+  <sub>Built with ❤︎ by
+  <a href="https://twitter.com/muhsinkeramam">Muhsin.K</a> 
+</div>
+
 ## Architecture
 
 <img src="sketch/architecture.png" alt="architecture" />
