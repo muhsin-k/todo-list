@@ -6,17 +6,17 @@ TodoList is web application built to for string to do items.
 
 <img src="sketch/architecture.png" alt="architecture" />
 
+- Todo Back end
+    - [Express](https://expressjs.com/)
+    - [Mongoose](http://mongoosejs.com/)
+    - [Redis](https://redis.io/)
+-  Todo Front end
+    - [React 16](https://reactjs.org/)
+    - [Redux](https://redux.js.org/)
+    - [Axios](https://github.com/axios/axios)
 ## Todo Back end
 
-* [Express](https://expressjs.com/)
-* [Mongoose](http://mongoosejs.com/)
-* [Redis](https://redis.io/)
-
 ## Todo Front end
-
-* [React 16](https://reactjs.org/)
-* [Reux](https://redux.js.org/)
-* [Axios](https://github.com/axios/axios)
 
 ## Getting Started
 
