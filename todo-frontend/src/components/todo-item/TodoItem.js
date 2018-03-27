@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "./TodoItem.css";
-
+// Vue sdfkdskfkdsfkdsfkdfdsfsss
 class TodoItem extends Component {
   onChangeStatus() {
     this.props.changeTodoStatus(this.props);
@@ -20,12 +20,10 @@ class TodoItem extends Component {
                 onClick={this.onChangeStatus.bind(this)}
               />
             </div>
-            <div className="col s6 todo-active-text">
+            <div className="col s8 todo-active-text">
               {this.props.todoTitle}
             </div>
-            <div className="col s2 todo-active-icon">
-              <i className="small material-icons">edit</i>
-            </div>
+
             <div
               className="col s2 todo-active-icon"
               onClick={this.deleteItem.bind(this)}
@@ -45,14 +43,11 @@ class TodoItem extends Component {
                 onClick={this.onChangeStatus.bind(this)}
               />
             </div>
-            <div className="col s6 todo-in-active-text">
+            <div className="col s8 todo-in-active-text">
               <strike>{this.props.todoTitle}</strike>
             </div>
-            <div className="col s2 todo-in-active-icon">
-              {/* <i className="small material-icons">edit</i> */}
-            </div>
             <div
-              className="col s2 todo-in-active-icon"
+              className="col s2  todo-in-active-icon"
               onClick={this.deleteItem.bind(this)}
             >
               <i className="small material-icons">delete</i>

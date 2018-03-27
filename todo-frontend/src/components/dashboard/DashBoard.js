@@ -25,33 +25,51 @@ class Dashboard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showModal: false,
+      showItemModal: false,
+      showConfirmModal: false,
+      selectedItemId: null,
       todoText: null
     };
-    this.handleOpenModal = this.handleOpenModal.bind(this);
+    this.openItemModal = this.openItemModal.bind(this);
+    this.openConfirmModal = this.openConfirmModal.bind(this);
     this.handleCloseModal = this.handleCloseModal.bind(this);
     this.changeTodoStatus = this.changeTodoStatus.bind(this);
     this.onTextChange = this.onTextChange.bind(this);
-    this.handleSubmitModal = this.handleSubmitModal.bind(this);
+    this.onSubmitItemModal = this.onSubmitItemModal.bind(this);
+    this.onSubmitConfirmModal = this.onSubmitConfirmModal.bind(this);
   }
-  handleOpenModal() {
-    this.setState({ showModal: true });
+  openItemModal() {
+    this.setState({ showItemModal: true });
+  }
+  openConfirmModal(key) {
+    this.setState({ showConfirmModal: true, selectedItemId: key.todoId });
   }
 
   onTextChange(e) {
     this.setState({ todoText: e.target.value });
   }
-  handleSubmitModal(e) {
-    console.log(this.state);
+  onSubmitItemModal(e) {
     if (this.state.todoText) {
       this.props.addItem({
         title: this.state.todoText
       });
-      this.setState({ showModal: false, todoText: null });
+      this.setState({ showItemModal: false, todoText: null });
+    }
+  }
+  onSubmitConfirmModal(key) {
+    this.setState({ showConfirmModal: false });
+    if (this.state.selectedItemId) {
+      this.props.deleteItem({
+        _id: this.state.selectedItemId
+      });
     }
   }
   handleCloseModal() {
-    this.setState({ showModal: false, todoText: null });
+    this.setState({
+      showItemModal: false,
+      showConfirmModal: false,
+      todoText: null
+    });
   }
 
   componentDidMount() {
@@ -61,11 +79,6 @@ class Dashboard extends Component {
     this.props.updateItem({
       _id: key.todoId,
       isActive: !key.todoActive
-    });
-  }
-  deleteItem(key) {
-    this.props.deleteItem({
-      _id: key.todoId
     });
   }
 
@@ -80,7 +93,7 @@ class Dashboard extends Component {
               todoId={item._id}
               key={item._id}
               changeTodoStatus={this.changeTodoStatus.bind(this)}
-              deleteItem={this.deleteItem.bind(this)}
+              deleteItem={this.openConfirmModal.bind(this)}
             />
           ))}
 
@@ -88,19 +101,21 @@ class Dashboard extends Component {
             <div
               to="/blogs/new"
               className="btn-floating btn-large red"
-              onClick={this.handleOpenModal}
+              onClick={this.openItemModal}
             >
               <i className="material-icons">add</i>
             </div>
           </div>
           <ReactModal
-            isOpen={this.state.showModal}
+            isOpen={this.state.showItemModal}
             contentLabel="onRequestClose Example"
             onRequestClose={this.handleCloseModal}
             shouldCloseOnOverlayClick={false}
             style={customStyles}
           >
-            <h6>Add a new item</h6>
+            <div className="row text-center">
+              <h6>Add a new item</h6>
+            </div>
             <input
               type="text"
               value={this.state.comment}
@@ -124,7 +139,41 @@ class Dashboard extends Component {
                   className="btn waves-effect waves-light todo-add-submit"
                   type="submit"
                   name="action"
-                  onClick={this.handleSubmitModal}
+                  onClick={this.onSubmitItemModal}
+                >
+                  Save
+                </button>
+              </div>
+            </div>
+          </ReactModal>
+          <ReactModal
+            isOpen={this.state.showConfirmModal}
+            contentLabel="onRequestClose Example"
+            onRequestClose={this.handleCloseModal}
+            shouldCloseOnOverlayClick={false}
+            style={customStyles}
+          >
+            <div className="row text-center">
+              <h6>Are you sure?</h6>
+            </div>
+            <div className="row">
+              <div className="col s6">
+                {" "}
+                <button
+                  className="btn waves-effect waves-light todo-add-cancel"
+                  type="submit"
+                  name="action"
+                  onClick={this.handleCloseModal}
+                >
+                  Cancel
+                </button>
+              </div>
+              <div className="col s6">
+                <button
+                  className="btn waves-effect waves-light todo-add-submit"
+                  type="submit"
+                  name="action"
+                  onClick={this.onSubmitConfirmModal}
                 >
                   Save
                 </button>
