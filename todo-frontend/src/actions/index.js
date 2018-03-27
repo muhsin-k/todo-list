@@ -7,7 +7,6 @@ import {
   UPDATE_ITEM,
   DELETE_ITEM
 } from "./types";
-
 export const fetchUser = () => async dispatch => {
   const res = await axios.get("/api/user");
 
