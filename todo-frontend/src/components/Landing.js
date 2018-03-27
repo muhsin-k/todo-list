@@ -3,9 +3,8 @@ import React, { Component } from "react";
 class Landing extends Component {
   render() {
     return (
-      <div style={{ textAlign: "center" }}>
-        <h1>Create To Do List</h1>
-        Dont forget anything
+      <div style={{ textAlign: "center", margin: "30vh 0vh", color: "black" }}>
+        <h4>Dont forget anything</h4>
       </div>
     );
   }

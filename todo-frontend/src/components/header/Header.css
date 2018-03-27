@@ -1,9 +1,7 @@
 .header {
-  background-color: white;
+  background-color: transparent !important;
 }
-.brand-logo {
-  color: black !important;
-}
-.header-item {
-  color: black !important;
+nav {
+  background-color: transparent !important;
+  color: white;
 }

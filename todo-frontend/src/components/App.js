@@ -14,18 +14,16 @@ class App extends Component {
 
   render() {
     return (
-      <div className="container">
-        <main>
-          <BrowserRouter>
-            <div>
-              <Header />
-              <Switch>
-                <Route path="/home" component={Dashboard} />
-                <Route path="/" component={Landing} />
-              </Switch>
-            </div>
-          </BrowserRouter>
-        </main>
+      <div className="container bg-image">
+        <BrowserRouter>
+          <div>
+            <Header />
+            <Switch>
+              <Route path="/home" component={Dashboard} />
+              <Route path="/" component={Landing} />
+            </Switch>
+          </div>
+        </BrowserRouter>
         <div className="footer">
           Built by{" "}
           <a target="_blank" href="http://muhzi.com">

@@ -30,7 +30,10 @@ class Header extends Component {
 
   render() {
     return (
-      <nav className="white z-depth-0">
+      <nav
+        className="z-depth-0"
+        style={{ backgroundColor: "transparent !important" }}
+      >
         <div className="nav-wrapper">
           <Link
             to="/"
