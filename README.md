@@ -28,6 +28,7 @@ yarn run server
 * [x] Confirm box for delete item
 * [ ] Home Page
 * [ ] Edit items
+* [ ] Change Font
 * [ ] Divide active and non-active items
 * [ ] Documentation
 * [ ] Code beautification

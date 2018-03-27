@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import * as actions from "../actions";
 
 import Header from "./header/Headers";
-import Landing from "./Landing";
+import Landing from "./landing/Landing";
 import Dashboard from "./dashboard/DashBoard";
 import "./styles.css";
 class App extends Component {

@@ -119,6 +119,7 @@ class Dashboard extends Component {
             <input
               type="text"
               value={this.state.comment}
+              maxLength="28"
               onChange={this.onTextChange.bind(this)}
               placeholder="Write a comment..."
             />

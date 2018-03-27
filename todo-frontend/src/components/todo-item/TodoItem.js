@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "./TodoItem.css";
-// Vue sdfkdskfkdsfkdsfkdfdsfsss
 class TodoItem extends Component {
   onChangeStatus() {
     this.props.changeTodoStatus(this.props);
