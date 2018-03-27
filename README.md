@@ -4,7 +4,7 @@ TodoList is web application built to for string to do items.
 
 ## Architecture
 
-<img src="sketch/todo-archi.png" alt="architecture" />
+<img src="sketch/architecture.png" alt="architecture" />
 
 ## Todo Back end
 
