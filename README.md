@@ -43,6 +43,7 @@ yarn run server
 * [ ] Change Font
 * [ ] Divide active and non-active items
 * [ ] Documentation
+* [ ] CI with Travis
 * [ ] Add PWA support
 
 ## License
