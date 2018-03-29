@@ -14,8 +14,8 @@ module.exports = app => {
     "/auth/google/callback",
     passport.authenticate("google"),
     (req, res) => {
-      console.log("After Login");
-      res.redirect("http://localhost:3000/home");
+      console.log("After Login", req);
+      res.redirect("http://localhost:3000");
     }
   );
 
