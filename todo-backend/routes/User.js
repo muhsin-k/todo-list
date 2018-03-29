@@ -17,17 +17,16 @@ module.exports = app => {
   //     res.redirect("http://localhost:3000/home");
   //   }
   // );
-  app.get(
-    "/auth/google/callback",
-    passport.authenticate("google", redirects),
-    function(req, res) {
-      // Explicitly save the session before redirecting!
-      console.log("req.session", req.session);
-      req.session.save(() => {
-        res.redirect("/success");
-      });
-    }
-  );
+  app.get("/auth/google/callback", passport.authenticate("google"), function(
+    req,
+    res
+  ) {
+    // Explicitly save the session before redirecting!
+    console.log("req.session", req.session);
+    req.session.save(() => {
+      res.redirect("/success");
+    });
+  });
 
   app.get("/api/user", async (req, res) => {
     res.status(200).send(req.user);
