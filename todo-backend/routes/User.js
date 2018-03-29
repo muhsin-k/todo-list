@@ -10,12 +10,21 @@ module.exports = app => {
     })
   );
 
+  // app.get(
+  //   "/auth/google/callback",
+  //   passport.authenticate("google"),
+  //   (req, res) => {
+  //     res.redirect("http://localhost:3000/home");
+  //   }
+  // );
   app.get(
     "/auth/google/callback",
-    passport.authenticate("google"),
-    (req, res) => {
+    passport.authenticate("google", redirects),
+    function(req, res) {
+      // Explicitly save the session before redirecting!
+      console.log("req.session", req.session);
       req.session.save(() => {
-        res.redirect("http://localhost:3000/home");
+        res.redirect("/success");
       });
     }
   );
