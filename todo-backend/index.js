@@ -13,7 +13,7 @@ mongoose.connect(keys.mongoURI, {
   reconnectTries: Number.MAX_VALUE,
   useMongoClient: true
 });
-// mongoose.set("debug", true);
+mongoose.set("debug", true);
 require("./models/User");
 require("./models/Item");
 require("./services/cache");
