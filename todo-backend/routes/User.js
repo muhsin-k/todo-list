@@ -4,16 +4,17 @@ const User = mongoose.model("User");
 
 module.exports = app => {
   app.get(
-    "/api/google",
+    "/auth/google",
     passport.authenticate("google", {
       scope: ["profile", "email"]
     })
   );
 
   app.get(
-    "/api/google/callback",
+    "/auth/google/callback",
     passport.authenticate("google"),
     (req, res) => {
+      console.log("After Login");
       res.redirect("http://localhost:3000/home");
     }
   );
@@ -21,7 +22,7 @@ module.exports = app => {
   app.get("/api/user", async (req, res) => {
     res.status(200).send(req.user);
   });
-  app.get("/api/logout", (req, res) => {
+  app.get("/auth/logout", (req, res) => {
     req.logout();
     res.redirect("/");
   });
