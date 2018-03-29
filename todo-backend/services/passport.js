@@ -6,6 +6,7 @@ const keys = require("../config/keys");
 const User = mongoose.model("User");
 
 passport.serializeUser((user, done) => {
+  console.log("erialize User", user);
   done(null, user.id);
 });
 
