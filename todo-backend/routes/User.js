@@ -24,7 +24,8 @@ module.exports = app => {
     // Explicitly save the session before redirecting!
     console.log("req.session", req.session);
     req.session.save(() => {
-      res.redirect("/success");
+      console.log("Save session");
+      res.redirect("http://localhost:3000/home");
     });
   });
 
