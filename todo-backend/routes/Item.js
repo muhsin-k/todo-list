@@ -52,4 +52,7 @@ module.exports = app => {
       res.status(401).json("Invalid User Id");
     }
   });
+  app.get("/api/working", async (req, res) => {
+    res.status(200).json("It is working");
+  });
 };
