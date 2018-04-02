@@ -32,6 +32,7 @@ module.exports = app => {
   // });
 
   app.get("/api/user", async (req, res) => {
+    console.log('req.user',req.user)
     res.status(200).send(req.user);
   });
   app.get("/auth/logout", (req, res) => {
