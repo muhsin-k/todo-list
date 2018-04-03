@@ -1,18 +1,22 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import axios from "axios";
 import "./Auth.css";
 class Auth extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      authType: this.props.match.params.type,
+      authType: this.props.match.params.type || "login",
       email: "",
       password: "",
       username: "",
       showEmailError: false,
       showUserNameError: false,
       showPasswordError: false,
-      buttonText: this.props.match.params.type === "login" ? "Login" : "Signup"
+      showError: false,
+      errorMessage: "",
+      showLoading: false,
+      buttonText: this.props.match.params.type === "signup" ? "Signup" : "Login"
     };
     this.onSubmit = this.onSubmit.bind(this);
     this.handleUserInput = this.handleUserInput.bind(this);
@@ -26,7 +30,8 @@ class Auth extends Component {
     this.setState({
       showEmailError: false,
       showUserNameError: false,
-      showPasswordError: false
+      showPasswordError: false,
+      showError: false
     });
     this.doValidations();
   }
@@ -66,8 +71,79 @@ class Auth extends Component {
       }
     }
   }
-  doLogin() {}
-  doSignup() {}
+  doLogin() {
+    const requestUrl = "/api/user/login";
+    const obj = {
+      emailId: this.state.email,
+      password: this.state.password
+    };
+    axios
+      .post(requestUrl, obj)
+      .then(response => {
+        console.log("Response: " + response);
+      })
+      .catch(e => {
+        this.setState({
+          errorMessage: "Email is not exist",
+          showError: true
+        });
+        console.log("Error: " + e);
+      });
+  }
+  doSignup() {
+    const requestUrl = "/api/user/signup";
+    const obj = {
+      emailId: this.state.email,
+      password: this.state.password,
+      username: this.state.username
+    };
+    axios
+      .post(requestUrl, obj)
+      .then(response => {
+        console.log("Response: " + response);
+      })
+      .catch(e => {
+        this.setState({
+          errorMessage: "Email is not exist",
+          showError: true
+        });
+        console.log("Error: " + e);
+      });
+  }
+  renderButton() {
+    if (!this.state.showLoading) {
+      return (
+        <div className="row auth-div">
+          <button
+            className="btn waves-effect waves-light auth-button"
+            type="submit"
+            name="action"
+            onClick={this.onSubmit}
+          >
+            {this.state.buttonText}
+          </button>
+        </div>
+      );
+    } else {
+      return (
+        <div className="loader">
+          <div className="preloader-wrapper small active">
+            <div className="spinner-layer spinner-green-only">
+              <div className="circle-clipper left">
+                <div className="circle" />
+              </div>
+              <div className="gap-patch">
+                <div className="circle" />
+              </div>
+              <div className="circle-clipper right">
+                <div className="circle" />
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    }
+  }
   render() {
     return (
       <div className="auth">
@@ -124,18 +200,12 @@ class Auth extends Component {
                 )}
               </div>
             </div>
-            <div className="row">
-              <div className="col 12">
-                <button
-                  className="btn waves-effect waves-light todo-add-submit"
-                  type="submit"
-                  name="action"
-                  onClick={this.onSubmit}
-                >
-                  {this.state.buttonText}
-                </button>
-              </div>
+            <div className="row showError">
+              {this.state.showError && (
+                <div className="formError">{this.state.errorMessage}</div>
+              )}
             </div>
+            {this.renderButton()}
           </div>
         </div>
       </div>
@@ -143,11 +213,4 @@ class Auth extends Component {
   }
 }
 
-function bindAction(dispatch) {
-  return {};
-}
-function mapStateToProps(state) {
-  return {};
-}
-
-export default connect(mapStateToProps, bindAction)(Auth);
+export default Auth;

@@ -25,8 +25,13 @@ class App extends Component {
             <Header />
             <Switch>
               <Route path="/home" component={Dashboard} />
-              <Route path="/auth/:type" component={Auth} />
-              <Route path="/" component={Landing} />
+              <Route
+                path="/auth/:type"
+                render={props => (
+                  <Auth key={props.match.params.type} {...props} />
+                )}
+              />
+              <Route path="/" component={Auth} />
             </Switch>
           </div>
         </BrowserRouter>

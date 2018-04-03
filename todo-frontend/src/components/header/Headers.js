@@ -19,15 +19,15 @@ class Header extends Component {
       ];
     } else {
       return [
-        <li key="2">
-          <a href={"http://localhost:5000/auth/google"} className="header-item">
-            Login
-          </a>
-        </li>,
         <li key="3">
-          <a href={"http://localhost:5000/auth/google"} className="header-item">
+          <Link to="/auth/login" className="header-item">
+            Login
+          </Link>
+        </li>,
+        <li key="2">
+          <Link to="/auth/signup" className="header-item">
             Signup
-          </a>
+          </Link>
         </li>
       ];
     }

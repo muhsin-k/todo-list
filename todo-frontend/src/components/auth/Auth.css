@@ -12,6 +12,16 @@
   color: red;
   float: left;
 }
+.showError {
+  padding: 0 14px;
+}
+.auth-button {
+  width: 100%;
+  background-color: #ff824e !important;
+}
+.auth-div {
+  padding: 0 14px;
+}
 input {
   border-bottom: 2px solid;
   color: white;
