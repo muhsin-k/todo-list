@@ -32,7 +32,7 @@ module.exports = app => {
     }
   });
   app.post("/api/deleteitem", cleanCache, async (req, res) => {
-    const { _id } = req.body;
+    const { _id, _user } = req.body;
     try {
       const item = await Item.remove({ _id: _id });
       res.status(200).json(item);

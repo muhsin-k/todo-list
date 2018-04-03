@@ -7,14 +7,15 @@ import {
   UPDATE_ITEM,
   DELETE_ITEM
 } from "./types";
-export const fetchUser = () => async dispatch => {
-  const res = await axios.get("/api/user");
+export const fetchUser = obj => async dispatch => {
+  console.log("obj", obj);
+  const res = await axios.post("/api/user/login", obj);
 
-  dispatch({ type: FETCH_USER, payload: res.data });
+  dispatch({ type: FETCH_USER, payload: obj });
 };
-export const fetchAllItems = () => async dispatch => {
+export const fetchAllItems = obj => async dispatch => {
   dispatch({ type: INIT_ITEM_FETCH });
-  const res = await axios.get("/api/items");
+  const res = await axios.get("/api/items/5ab63840ab274743e96238d3");
 
   dispatch({ type: ALL_ITEMS, payload: res.data });
   dispatch({ type: COMPLETE_ITEM_FETCH });

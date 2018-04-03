@@ -60,7 +60,8 @@ class Dashboard extends Component {
     this.setState({ showConfirmModal: false });
     if (this.state.selectedItemId) {
       this.props.deleteItem({
-        _id: this.state.selectedItemId
+        _id: this.state.selectedItemId,
+        _user: "5ab63840ab274743e96238d3"
       });
     }
   }
@@ -73,12 +74,13 @@ class Dashboard extends Component {
   }
 
   componentDidMount() {
-    this.props.fetchAllItems();
+    this.props.fetchAllItems({ userId: "5ab63840ab274743e96238d3" });
   }
   changeTodoStatus(key) {
     this.props.updateItem({
       _id: key.todoId,
-      isActive: !key.todoActive
+      isActive: !key.todoActive,
+      _user: "5ab63840ab274743e96238d3"
     });
   }
 
@@ -212,7 +214,7 @@ class Dashboard extends Component {
 }
 function bindAction(dispatch) {
   return {
-    fetchAllItems: () => dispatch(fetchAllItems()),
+    fetchAllItems: obj => dispatch(fetchAllItems(obj)),
     addItem: obj => dispatch(addItem(obj)),
     updateItem: obj => dispatch(updateItem(obj)),
     deleteItem: obj => dispatch(deleteItem(obj))

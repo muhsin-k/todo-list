@@ -9,7 +9,11 @@ import Dashboard from "./dashboard/DashBoard";
 import "./styles.css";
 class App extends Component {
   componentDidMount() {
-    this.props.fetchUser();
+    const obj = {
+      emailId: "muhsinkeramam@gmail.com",
+      password: "muhsin"
+    };
+    this.props.fetchUser(obj);
   }
 
   render() {
