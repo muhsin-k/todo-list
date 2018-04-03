@@ -6,6 +6,7 @@ import * as actions from "../actions";
 import Header from "./header/Headers";
 import Landing from "./landing/Landing";
 import Dashboard from "./dashboard/DashBoard";
+import Auth from "./auth/Auth";
 import "./styles.css";
 class App extends Component {
   componentDidMount() {
@@ -13,7 +14,7 @@ class App extends Component {
       emailId: "muhsinkeramam@gmail.com",
       password: "muhsin"
     };
-    this.props.fetchUser(obj);
+    // this.props.fetchUser(obj);
   }
 
   render() {
@@ -24,6 +25,7 @@ class App extends Component {
             <Header />
             <Switch>
               <Route path="/home" component={Dashboard} />
+              <Route path="/auth/:type" component={Auth} />
               <Route path="/" component={Landing} />
             </Switch>
           </div>

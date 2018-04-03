@@ -22,7 +22,6 @@
   </a>
 </p>
 
-
 <div align="center">
   <sub>Built with ❤︎ by
   <a href="https://twitter.com/muhsinkeramam">Muhsin.K</a> 
@@ -31,26 +30,25 @@
   
 ## Features
 
-- Written in uncomplicated Go (Golang)
-- No installation necessary - just use the [binary](https://github.com/karan/joe#installation).
-- Stupidly [easy to use](https://github.com/karan/joe#usage)
-- Supports all Github-supported [`.gitignore` files](https://github.com/karan/joe#list-all-available-files)
-- Works on Mac, Linux and (maybe) Windows
-- Supports other version control systems (`.hgignore`)
+* Written in uncomplicated Go (Golang)
+* No installation necessary - just use the [binary](https://github.com/karan/joe#installation).
+* Stupidly [easy to use](https://github.com/karan/joe#usage)
+* Supports all Github-supported [`.gitignore` files](https://github.com/karan/joe#list-all-available-files)
+* Works on Mac, Linux and (maybe) Windows
+* Supports other version control systems (`.hgignore`)
 
 ## Architecture
 
 <img src="sketch/architecture.png" alt="architecture" />
 
-- ### Back end
-    - [Express](https://expressjs.com/)
-    - [Mongoose](http://mongoosejs.com/)
-    - [Redis](https://redis.io/)
-- ### Front end
-    - [React 16](https://reactjs.org/)
-    - [Redux](https://redux.js.org/)
-    - [Axios](https://github.com/axios/axios)
-
+* ### Back end
+  * [Express](https://expressjs.com/)
+  * [Mongoose](http://mongoosejs.com/)
+  * [Redis](https://redis.io/)
+* ### Front end
+  * [React 16](https://reactjs.org/)
+  * [Redux](https://redux.js.org/)
+  * [Axios](https://github.com/axios/axios)
 
 ## Getting Started
 
@@ -81,6 +79,7 @@ Check out the demo project for a quick example of how NSGIF works. After you cap
 * [ ] Home Page
 * [ ] Edit items
 * [ ] Change Font
+* [ ] Code beautification
 * [ ] Divide active and non-active items
 * [ ] Documentation
 * [ ] CI with Travis

@@ -1,4 +1,6 @@
 export const FETCH_USER = "fetch_user";
+export const DO_LOGIN = "do_login";
+export const DO_SIGNUP = "do_signup";
 export const INIT_ITEM_FETCH = "init_item_fetch";
 export const COMPLETE_ITEM_FETCH = "complete_item_fetch";
 export const ALL_ITEMS = "all_items";

@@ -23,6 +23,11 @@ class Header extends Component {
           <a href={"http://localhost:5000/auth/google"} className="header-item">
             Login
           </a>
+        </li>,
+        <li key="3">
+          <a href={"http://localhost:5000/auth/google"} className="header-item">
+            Signup
+          </a>
         </li>
       ];
     }
