@@ -4,11 +4,11 @@ const mongoose = require("mongoose");
 const cookieSession = require("cookie-session");
 const bodyParser = require("body-parser");
 const passport = require("passport");
-const keys = require("./config/keys");
+const constants = require("./config/constants");
 
 //Connect to MongoDB
 mongoose.Promise = global.Promise;
-mongoose.connect(keys.mongoURI, {
+mongoose.connect(constants.mongoURI, {
   keepAlive: true,
   reconnectTries: Number.MAX_VALUE,
   useMongoClient: true
@@ -17,17 +17,8 @@ mongoose.set("debug", true);
 require("./models/User");
 require("./models/Item");
 require("./services/cache");
-require("./services/passport");
 const app = express();
 app.use(bodyParser.json());
-app.use(
-  cookieSession({
-    maxAge: 30 * 24 * 60 * 60 * 1000,
-    keys: [keys.cookieKey]
-  })
-);
-app.use(passport.initialize());
-app.use(passport.session());
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");

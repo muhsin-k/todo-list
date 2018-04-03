@@ -2,11 +2,12 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const userSchema = new Schema({
-  googleId: String,
-  displayName: String,
   userName: String,
-  emailId: String,
-  profilePic: String,
+  emailId: {
+    type: String,
+    unique: true
+  },
+  password: String,
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now }
 });

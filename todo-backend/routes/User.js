@@ -1,42 +1,47 @@
 const mongoose = require("mongoose");
-const passport = require("passport");
 const User = mongoose.model("User");
-
+const md5 = require("md5");
 module.exports = app => {
-  app.get(
-    "/auth/google",
-    passport.authenticate("google", {
-      scope: ["profile", "email"]
-    })
-  );
+  app.post("/api/user/signup", async (req, res) => {
+    const { emailId, password, userName } = req.body;
+    const md5Password = md5(password);
+    const user = new User({
+      emailId,
+      password: md5Password,
+      userName
+    });
 
-  app.get(
-    "/auth/google/callback",
-    passport.authenticate("google"),
-    (req, res) => {
-      setTimeout(function() {
-        res.redirect("http://localhost:3000/home");
-      }, 2000);
+    try {
+      await user.save();
+      res.status(200).json("Success");
+    } catch (err) {
+      res.status(401).json(err);
     }
-  );
-  // app.get("/auth/google/callback", passport.authenticate("google"), function(
-  //   req,
-  //   res
-  // ) {
-  //   // Explicitly save the session before redirecting!
-  //   console.log("req.session", req.session);
-  //   req.session.save(() => {
-  //     console.log("Save session");
-  //     res.redirect("http://localhost:3000/home");
-  //   });
-  // });
-
-  app.get("/api/user", async (req, res) => {
-    console.log('req.user',req.user)
-    res.status(200).send(req.user);
   });
-  app.get("/auth/logout", (req, res) => {
-    req.logout();
-    res.redirect("/");
+
+  app.post("/api/user/login", async (req, res) => {
+    const { emailId, password } = req.body;
+    try {
+      const existingUser = await User.findOne({
+        $and: [
+          {
+            emailId: emailId
+          },
+          {
+            password: md5(password)
+          }
+        ]
+      });
+      if (existingUser) {
+        res.status(200).json({
+          _id: existingUser._id,
+          userName: existingUser.userName
+        });
+      } else {
+        res.status(404).json("Email is not exist");
+      }
+    } catch (err) {
+      res.status(500).json(err);
+    }
   });
 };

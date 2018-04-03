@@ -3,22 +3,22 @@ const mongoose = require("mongoose");
 const Item = mongoose.model("Item");
 const cleanCache = require("../middlewares/cleanCache");
 module.exports = app => {
-  app.get("/api/items", async (req, res) => {
+  app.get("/api/items/:id", async (req, res) => {
     try {
-      const items = await Item.find({ _user: req.user.id })
+      const items = await Item.find({ _user: req.params.id })
         .sort("-isActive")
         .cache({
-          key: req.user.id
+          key: req.params.id
         });
       res.status(200).json(items);
     } catch (err) {
+      console.log(req.params.id, err);
       res.status(404).json(err);
     }
   });
   app.put("/api/item", cleanCache, async (req, res) => {
     const { _id, isActive } = req.body;
     const item = await Item.findOne({ _id: _id });
-    console.log("item", item);
     if (item) {
       try {
         item.isActive = isActive;
@@ -42,8 +42,7 @@ module.exports = app => {
   });
 
   app.post("/api/item", cleanCache, async (req, res) => {
-    const { title } = req.body;
-    const _user = req.user.id;
+    const { title, _user } = req.body;
     const item = new Item({
       title,
       _user
