@@ -4,7 +4,7 @@
 
 </h1>
 
-<h4 align="center">TodoList is web application built to for storing to do items</h4>
+<h4 align="center">TodoList is a web application built to for storing to do items</h4>
 
 
 <div align="center">
