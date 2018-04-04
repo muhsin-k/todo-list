@@ -51,7 +51,8 @@ class Dashboard extends Component {
   onSubmitItemModal(e) {
     if (this.state.todoText) {
       this.props.addItem({
-        title: this.state.todoText
+        title: this.state.todoText,
+        _user: localStorage.getItem("todoId")
       });
       this.setState({ showItemModal: false, todoText: null });
     }
@@ -61,7 +62,7 @@ class Dashboard extends Component {
     if (this.state.selectedItemId) {
       this.props.deleteItem({
         _id: this.state.selectedItemId,
-        _user: "5ab63840ab274743e96238d3"
+        _user: localStorage.getItem("todoId")
       });
     }
   }
@@ -74,13 +75,16 @@ class Dashboard extends Component {
   }
 
   componentDidMount() {
-    this.props.fetchAllItems({ userId: "5ab63840ab274743e96238d3" });
+    if (localStorage.getItem("todoId")) {
+      this.props.fetchAllItems({ userId: localStorage.getItem("todoId") });
+    } else {
+    }
   }
   changeTodoStatus(key) {
     this.props.updateItem({
       _id: key.todoId,
       isActive: !key.todoActive,
-      _user: "5ab63840ab274743e96238d3"
+      _user: localStorage.getItem("todoId")
     });
   }
 

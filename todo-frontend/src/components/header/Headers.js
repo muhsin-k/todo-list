@@ -3,20 +3,30 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import "./Header.css";
 const logo = require("../../assets/logo.png");
-console.log(logo);
 class Header extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { logged: true };
+  }
+  componentDidMount() {
+    if (localStorage.getItem("todoId")) {
+      this.setState({ logged: true });
+    } else {
+      this.setState({ logged: false });
+    }
+  }
   renderContent() {
-    if (this.props.auth) {
+    if (this.state.logged) {
       return [
-        <li key="3" style={{ margin: "0 10px" }}>
-          <Link to="/home" className="header-item">
-            My List
-          </Link>
-        </li>,
+        // <li key="3" style={{ margin: "0 10px" }}>
+        //   <Link to="/home" className="header-item">
+        //     My List
+        //   </Link>
+        // </li>,
         <li key="2">
-          <a href={"auth/logout"} className="header-item">
+          <Link to="/auth/login" className="header-item">
             Logout
-          </a>
+          </Link>
         </li>
       ];
     } else {
@@ -42,19 +52,9 @@ class Header extends Component {
         style={{ backgroundColor: "transparent !important" }}
       >
         <div className="nav-wrapper">
-          {/* <Link
-             to="/"
-            className="left brand-logo"
-            style={{ marginLeft: "10px" }}
-          >
-            To Do List
-          </Link> */}
-          {/* <a href="#!" class="brand-logo">
-            <i className="material-icons">cloud</i>Logo
-          </a> */}
-          {/* <a href="#!" className="brand-logo">
+          <a href="#!" className="brand-logo">
             <img src={logo} />
-          </a> */}
+          </a>
 
           <ul className="right">{this.renderContent()}</ul>
         </div>

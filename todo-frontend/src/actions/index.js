@@ -1,6 +1,5 @@
 import axios from "axios";
 import {
-  FETCH_USER,
   ALL_ITEMS,
   INIT_ITEM_FETCH,
   COMPLETE_ITEM_FETCH,
@@ -19,14 +18,9 @@ export const doSignup = obj => async dispatch => {
 
   dispatch({ type: DO_SIGNUP, payload: obj });
 };
-export const fetchUser = obj => async dispatch => {
-  const res = await axios.post("/api/user/login", obj);
-
-  dispatch({ type: FETCH_USER, payload: obj });
-};
 export const fetchAllItems = obj => async dispatch => {
   dispatch({ type: INIT_ITEM_FETCH });
-  const res = await axios.get("/api/items/5ab63840ab274743e96238d3");
+  const res = await axios.get("/api/items/" + localStorage.getItem("todoId"));
 
   dispatch({ type: ALL_ITEMS, payload: res.data });
   dispatch({ type: COMPLETE_ITEM_FETCH });

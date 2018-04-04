@@ -4,10 +4,7 @@
   padding: 0 14px;
   color: black;
 }
-::placeholder {
-  /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: white;
-}
+
 .formError {
   color: red;
   float: left;
@@ -24,7 +21,7 @@
 }
 input {
   border-bottom: 2px solid;
-  color: white;
+  color: black;
 }
 /* label color */
 .input-field label {

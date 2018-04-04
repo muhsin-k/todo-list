@@ -9,16 +9,11 @@ import Dashboard from "./dashboard/DashBoard";
 import Auth from "./auth/Auth";
 import "./styles.css";
 class App extends Component {
-  componentDidMount() {
-    if (localStorage.getItem("todoId")) {
-      this.props.fetchUser(localStorage.getItem("todoId"));
-    } else {
-    }
-  }
+  componentDidMount() {}
 
   render() {
     return (
-      <div className="container bg-image">
+      <div className="container ">
         <BrowserRouter>
           <div>
             <Header />
