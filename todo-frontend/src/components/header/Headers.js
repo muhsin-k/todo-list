@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import "./Header.css";
+const logo = require("../../assets/logo.png");
+console.log(logo);
 class Header extends Component {
   renderContent() {
     if (this.props.auth) {
@@ -40,13 +42,20 @@ class Header extends Component {
         style={{ backgroundColor: "transparent !important" }}
       >
         <div className="nav-wrapper">
-          <Link
-            to="/"
+          {/* <Link
+             to="/"
             className="left brand-logo"
             style={{ marginLeft: "10px" }}
           >
             To Do List
-          </Link>
+          </Link> */}
+          {/* <a href="#!" class="brand-logo">
+            <i className="material-icons">cloud</i>Logo
+          </a> */}
+          {/* <a href="#!" className="brand-logo">
+            <img src={logo} />
+          </a> */}
+
           <ul className="right">{this.renderContent()}</ul>
         </div>
       </nav>

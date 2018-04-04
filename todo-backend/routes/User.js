@@ -33,10 +33,12 @@ module.exports = app => {
         ]
       });
       if (existingUser) {
-        res.status(200).json({
+        const result = {
           _id: existingUser._id,
           userName: existingUser.userName
-        });
+        };
+        console.log("result", result);
+        res.status(200).json(result);
       } else {
         res.status(404).json("Email is not exist");
       }

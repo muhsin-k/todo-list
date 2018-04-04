@@ -7,9 +7,9 @@ class Auth extends Component {
     super(props);
     this.state = {
       authType: this.props.match.params.type || "login",
-      email: "",
-      password: "",
-      username: "",
+      email: "muhsinkeramam@gmail.com",
+      password: "muhsin",
+      username: "muhzi4u",
       showEmailError: false,
       showUserNameError: false,
       showPasswordError: false,
@@ -80,11 +80,12 @@ class Auth extends Component {
     axios
       .post(requestUrl, obj)
       .then(response => {
-        console.log("Response: " + response);
+        localStorage.setItem("todoId", response.data._id);
+        localStorage.setItem("todoUserName", response.data.userName);
       })
       .catch(e => {
         this.setState({
-          errorMessage: "Email is not exist",
+          errorMessage: "Invalid email id or password",
           showError: true
         });
         console.log("Error: " + e);
@@ -95,7 +96,7 @@ class Auth extends Component {
     const obj = {
       emailId: this.state.email,
       password: this.state.password,
-      username: this.state.username
+      userName: this.state.username
     };
     axios
       .post(requestUrl, obj)
@@ -104,7 +105,7 @@ class Auth extends Component {
       })
       .catch(e => {
         this.setState({
-          errorMessage: "Email is not exist",
+          errorMessage: "Email  already exist",
           showError: true
         });
         console.log("Error: " + e);

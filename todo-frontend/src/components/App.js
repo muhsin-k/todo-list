@@ -4,17 +4,16 @@ import { connect } from "react-redux";
 import * as actions from "../actions";
 
 import Header from "./header/Headers";
-import Landing from "./landing/Landing";
+// import Landing from "./landing/Landing";
 import Dashboard from "./dashboard/DashBoard";
 import Auth from "./auth/Auth";
 import "./styles.css";
 class App extends Component {
   componentDidMount() {
-    const obj = {
-      emailId: "muhsinkeramam@gmail.com",
-      password: "muhsin"
-    };
-    // this.props.fetchUser(obj);
+    if (localStorage.getItem("todoId")) {
+      this.props.fetchUser(localStorage.getItem("todoId"));
+    } else {
+    }
   }
 
   render() {
