@@ -13,7 +13,11 @@ module.exports = app => {
 
     try {
       await user.save();
-      res.status(200).json("Success");
+      const result = {
+        _id: emailId,
+        userName: userName
+      };
+      res.status(200).json(result);
     } catch (err) {
       res.status(401).json(err);
     }

@@ -79,6 +79,7 @@ Check out the demo project for a quick example of how NSGIF works. After you cap
 * [ ] Edit items
 * [ ] Movie auth apis to Redux
 * [ ] Change Form validation
+* [ ] Implement Passport for authentication.
 * [ ] Code beautification
 * [ ] Divide active and non-active items
 * [ ] Documentation
