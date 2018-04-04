@@ -1,9 +1,7 @@
 <h1 align="center">
   <br>
-  <a href="http://www.amitmerchant.com/electron-markdownify"><img src="sketch/logo_full.png" alt="Markdownify" width="200"></a>
-  <br>
-  To Do List
-  <br>
+  <a href="http://www.amitmerchant.com/electron-markdownify"><img src="sketch/logo.png" alt="Markdownify" width="200"></a>
+
 </h1>
 
 <h4 align="center">TodoList is web application built to for storing to do items</h4>
