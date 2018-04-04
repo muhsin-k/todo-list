@@ -18,37 +18,48 @@
 
 <img src="sketch/architecture.png" alt="architecture" />
 
-* ### Back end
-  * [Express](https://expressjs.com/)
-  * [Mongoose](http://mongoosejs.com/)
-  * [Redis](https://redis.io/)
-* ### Front end
-  * [React 16](https://reactjs.org/)
-  * [Redux](https://redux.js.org/)
-  * [Axios](https://github.com/axios/axios)
+- ### Back end
+    - [Express](https://expressjs.com/)- Nodejs framwork for building the REST Apis
+    - [Mongodb](http://mongodb.com/)-  Document oriented NoSQL database
+    - [Mongoose](https://http://mongoosejs.com)- MongoDB object modeling tool
+    - [Redis](https://redis.io/)- In memory key-value database
+- ### Front end
+    - [React](https://reactjs.org/) - JavaScript library for building user interfaces.
+    - [Redux](https://redux.js.org/)- Redux is a predictable state container for JavaScript applications.
+    - [React-router](https://github.com/ReactTraining/react-router)- Complete routing library for React
+    - [Materialize css](http://materializecss.com/)- Responsive front-end framework based on Material Design
 
 ## Getting Started
 
+#### Clone the project
 ```sh
 # clone it
-git clone https://github.com/muhzi4u/express-starter.git
-cd express-starter
-
+git clone https://github.com/muhzi4u/todo-list.git
+cd todo-list
 # Make it your own
-rm -rf .git && git init && npm init
+rm -rf .git && git init
+```
+#### Run back end
 
+```
+# Move to server folder
+cd server/
 # Install dependencies
 yarn install
 
 # Start  server
-yarn run server
+yarn run start
+```
+#### Run front end
+```
+# Move to client folder 
+cd client/
+# Install dependencies
+yarn install
+# Start  client
+yarn run start
 ```
 
-## Demo
-
-Check out the demo project for a quick example of how NSGIF works. After you capture your video, this is what you have to do, to retrieve the GIF:
-
-![NSGIF](https://dl.dropboxusercontent.com/s/p02c6l7rzk6mf6m/NSGIF-HT.gif?dl=0)
 
 ## ☑ TODO
 
@@ -66,5 +77,3 @@ Check out the demo project for a quick example of how NSGIF works. After you cap
 ## License
 
 MIT
-
-[![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)
