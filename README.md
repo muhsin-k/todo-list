@@ -6,36 +6,13 @@
   <br>
 </h1>
 
-<h4 align="center">TodoList is web application built to for string to do items</h4>
+<h4 align="center">TodoList is web application built to for storing to do items</h4>
 
-<p align="center">
-  <a href="https://badge.fury.io/js/electron-markdownify">
-    <img src="https://badge.fury.io/js/electron-markdownify.svg"
-         alt="Gitter">
-  </a>
-  <a href="https://gitter.im/amitmerchant1990/electron-markdownify"><img src="https://badges.gitter.im/amitmerchant1990/electron-markdownify.svg"></a>
-  <a href="https://saythanks.io/to/amitmerchant1990">
-      <img src="https://img.shields.io/badge/SayThanks.io-%E2%98%BC-1EAEDB.svg">
-  </a>
-  <a href="https://www.paypal.me/AmitMerchant">
-    <img src="https://img.shields.io/badge/$-donate-ff69b4.svg?maxAge=2592000&amp;style=flat">
-  </a>
-</p>
 
 <div align="center">
-  <sub>Built with ❤︎ by
-  <a href="https://twitter.com/muhsinkeramam">Muhsin.K</a> 
+  Built with ❤︎  
 </div>
   
-  
-## Features
-
-* Written in uncomplicated Go (Golang)
-* No installation necessary - just use the [binary](https://github.com/karan/joe#installation).
-* Stupidly [easy to use](https://github.com/karan/joe#usage)
-* Supports all Github-supported [`.gitignore` files](https://github.com/karan/joe#list-all-available-files)
-* Works on Mac, Linux and (maybe) Windows
-* Supports other version control systems (`.hgignore`)
 
 ## Architecture
 
