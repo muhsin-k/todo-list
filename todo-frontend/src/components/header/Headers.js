@@ -7,6 +7,7 @@ class Header extends Component {
   constructor(props) {
     super(props);
     this.state = { logged: true };
+    this.onLogOut = this.onLogOut.bind(this);
   }
   componentDidMount() {
     if (localStorage.getItem("todoId")) {
@@ -15,18 +16,17 @@ class Header extends Component {
       this.setState({ logged: false });
     }
   }
+  onLogOut() {
+    localStorage.clear();
+    this.props.history.push("/auth/login");
+  }
   renderContent() {
     if (this.state.logged) {
       return [
-        // <li key="3" style={{ margin: "0 10px" }}>
-        //   <Link to="/home" className="header-item">
-        //     My List
-        //   </Link>
-        // </li>,
         <li key="2">
-          <Link to="/auth/login" className="header-item">
+          <a onClick={this.onLogOut} className="header-item">
             Logout
-          </Link>
+          </a>
         </li>
       ];
     } else {

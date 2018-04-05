@@ -1,5 +1,5 @@
 .dashboard {
-  margin-top: 20px;
+  margin-top: 30px;
   text-align: center;
   padding: 0 14px;
 }
@@ -20,4 +20,7 @@
 }
 .text-center {
   text-align: center;
+}
+.empty-text {
+  font-size: 25px;
 }

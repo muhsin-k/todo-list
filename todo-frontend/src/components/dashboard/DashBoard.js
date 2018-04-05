@@ -90,7 +90,7 @@ class Dashboard extends Component {
   }
 
   renderItems() {
-    if (this.props.items.allItems) {
+    if (this.props.items.allItems && this.props.items.allItems.length) {
       return (
         <div className="dashboard">
           {this.props.items.allItems.map((item, i) => (
@@ -188,6 +188,22 @@ class Dashboard extends Component {
               </div>
             </div>
           </ReactModal>
+        </div>
+      );
+    } else {
+      return (
+        <div className="dashboard">
+          <div className="empty-text">Your list is empty</div>
+
+          <div className="fixed-action-btn">
+            <div
+              to="/blogs/new"
+              className="btn-floating btn-large red"
+              onClick={this.openItemModal}
+            >
+              <i className="material-icons">add</i>
+            </div>
+          </div>
         </div>
       );
     }
