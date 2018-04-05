@@ -78,6 +78,7 @@ class Dashboard extends Component {
     if (localStorage.getItem("todoId")) {
       this.props.fetchAllItems({ userId: localStorage.getItem("todoId") });
     } else {
+      this.props.history.push("/auth/login");
     }
   }
   changeTodoStatus(key) {

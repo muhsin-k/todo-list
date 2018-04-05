@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
 import axios from "axios";
 import "./Auth.css";
 class Auth extends Component {
@@ -82,6 +81,7 @@ class Auth extends Component {
       .then(response => {
         localStorage.setItem("todoId", response.data._id);
         localStorage.setItem("todoUserName", response.data.userName);
+        this.props.history.push("/home");
       })
       .catch(e => {
         this.setState({
@@ -102,6 +102,10 @@ class Auth extends Component {
       .post(requestUrl, obj)
       .then(response => {
         console.log("Response: " + response);
+        localStorage.setItem("todoId", response.data._id);
+        localStorage.setItem("todoUserName", response.data.userName);
+
+        this.props.history.push("/home");
       })
       .catch(e => {
         this.setState({

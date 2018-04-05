@@ -8,12 +8,45 @@ nav {
 nav ul a {
   color: black !important;
 }
-/* .brand-logo {
-  left: 10% !important;
-} */
 
-@media (max-width: 600px) {
-  .brand-logo img {
-    height: 56px;
+.brand-logo img {
+  height: 80px;
+}
+@media (min-width: 100px) {
+  .brand-logo {
+    left: 20% !important;
+  }
+}
+@media (min-width: 400px) {
+  .brand-logo {
+    left: 22% !important;
+  }
+}
+@media (min-width: 576px) {
+  .brand-logo {
+    left: 13% !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .brand-logo {
+    left: 9% !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .brand-logo {
+    left: 1% !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .brand-logo {
+    left: 1% !important;
+  }
+}
+@media (min-width: 1300px) {
+  .brand-logo {
+    left: 22% !important;
   }
 }

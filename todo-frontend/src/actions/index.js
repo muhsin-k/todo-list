@@ -4,20 +4,9 @@ import {
   INIT_ITEM_FETCH,
   COMPLETE_ITEM_FETCH,
   UPDATE_ITEM,
-  DELETE_ITEM,
-  DO_LOGIN,
-  DO_SIGNUP
+  DELETE_ITEM
 } from "./types";
-export const doLogin = obj => async dispatch => {
-  const res = await axios.post("/api/user/login", obj);
 
-  dispatch({ type: DO_LOGIN, payload: obj });
-};
-export const doSignup = obj => async dispatch => {
-  const res = await axios.post("/api/user/signup", obj);
-
-  dispatch({ type: DO_SIGNUP, payload: obj });
-};
 export const fetchAllItems = obj => async dispatch => {
   dispatch({ type: INIT_ITEM_FETCH });
   const res = await axios.get("/api/items/" + localStorage.getItem("todoId"));
