@@ -1,12 +1,25 @@
 import axios from "axios";
 import {
+  INIT_AUTH,
+  ERROR_AUTH,
+  COMPLETE_AUTH,
   ALL_ITEMS,
   INIT_ITEM_FETCH,
   COMPLETE_ITEM_FETCH,
+  ADD_ITEM,
   UPDATE_ITEM,
   DELETE_ITEM
 } from "./types";
 
+export const initLogin = obj => async dispatch => {
+  dispatch({ type: INIT_AUTH });
+};
+export const completeLogin = obj => async dispatch => {
+  dispatch({ type: COMPLETE_AUTH });
+};
+export const errorLogin = obj => async dispatch => {
+  dispatch({ type: ERROR_AUTH, payload: obj.errorMessage });
+};
 export const fetchAllItems = obj => async dispatch => {
   dispatch({ type: INIT_ITEM_FETCH });
   const res = await axios.get("/api/items/" + localStorage.getItem("todoId"));
@@ -17,7 +30,7 @@ export const fetchAllItems = obj => async dispatch => {
 export const addItem = obj => async dispatch => {
   const res = await axios.post("/api/item", obj);
 
-  dispatch({ type: UPDATE_ITEM, payload: res.data });
+  dispatch({ type: ADD_ITEM, payload: res.data });
   dispatch(fetchAllItems());
 };
 export const updateItem = obj => async dispatch => {

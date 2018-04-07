@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { connect } from "react-redux";
+
+import { initLogin, completeLogin, errorLogin } from "../../actions/index";
 import "./Auth.css";
 class Auth extends Component {
   constructor(props) {
@@ -76,19 +79,21 @@ class Auth extends Component {
       emailId: this.state.email,
       password: this.state.password
     };
+    this.props.initLogin();
     axios
       .post(requestUrl, obj)
       .then(response => {
         localStorage.setItem("todoId", response.data._id);
         localStorage.setItem("todoUserName", response.data.userName);
         this.props.history.push("/home");
+        this.props.completeLogin();
       })
       .catch(e => {
         this.setState({
           errorMessage: "Invalid email id or password",
           showError: true
         });
-        console.log("Error: " + e);
+        this.props.errorLogin(e);
       });
   }
   doSignup() {
@@ -116,7 +121,7 @@ class Auth extends Component {
       });
   }
   renderButton() {
-    if (!this.state.showLoading) {
+    if (!this.props.auth.isFetching) {
       return (
         <div className="row auth-div">
           <button
@@ -206,8 +211,8 @@ class Auth extends Component {
               </div>
             </div>
             <div className="row showError">
-              {this.state.showError && (
-                <div className="formError">{this.state.errorMessage}</div>
+              {this.props.auth.errorMessage && (
+                <div className="formError">{this.props.auth.errorMessage}</div>
               )}
             </div>
             {this.renderButton()}
@@ -217,5 +222,18 @@ class Auth extends Component {
     );
   }
 }
+function bindAction(dispatch) {
+  return {
+    initLogin: () => dispatch(initLogin()),
+    completeLogin: () => dispatch(initLogin()),
+    errorLogin: obj => dispatch(errorLogin(obj))
+  };
+}
+function mapStateToProps(state) {
+  console.log("Store-->", state.auth);
+  return {
+    auth: state.auth
+  };
+}
 
-export default Auth;
+export default connect(mapStateToProps, bindAction)(Auth);

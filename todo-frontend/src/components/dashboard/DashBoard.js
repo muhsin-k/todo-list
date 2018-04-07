@@ -25,7 +25,7 @@ class Dashboard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showItemModal: false,
+      showItemModal: true,
       showConfirmModal: false,
       selectedItemId: null,
       todoText: null
@@ -106,7 +106,6 @@ class Dashboard extends Component {
 
           <div className="fixed-action-btn">
             <div
-              to="/blogs/new"
               className="btn-floating btn-large red"
               onClick={this.openItemModal}
             >

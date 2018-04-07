@@ -21,7 +21,7 @@ class Header extends Component {
     this.props.history.push("/auth/login");
   }
   renderContent() {
-    if (this.state.logged) {
+    if (this.props.auth.isLogged) {
       return [
         <li key="2">
           <a onClick={this.onLogOut} className="header-item">
