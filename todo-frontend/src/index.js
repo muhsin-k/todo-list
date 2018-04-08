@@ -10,7 +10,7 @@ import reducers from "./reducers";
 
 import axios from "axios";
 window.axios = axios;
-window.axios.defaults.baseURL = "http://todo.muhzi.com/v1";
+window.axios.defaults.baseURL = "http://localhost/v1";
 const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
 
 ReactDOM.render(
