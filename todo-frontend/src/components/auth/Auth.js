@@ -9,9 +9,9 @@ class Auth extends Component {
     super(props);
     this.state = {
       authType: this.props.match.params.type || "login",
-      email: "muhsinkeramam@gmail.com",
-      password: "muhsin",
-      username: "muhzi4u",
+      email: "",
+      password: "",
+      username: "",
       showEmailError: false,
       showUserNameError: false,
       showPasswordError: false,
@@ -93,7 +93,6 @@ class Auth extends Component {
           errorMessage: "Invalid email id or password",
           showError: true
         });
-        console.log("Error", e);
         this.props.errorLogin({ errorMessage: "Invalid email id or password" });
       });
   }
@@ -162,8 +161,8 @@ class Auth extends Component {
     return (
       <div className="auth">
         <div className="row">
-          <div className="col s2" />
-          <div className="col s8">
+          <div className="col s1" />
+          <div className="col s10">
             {this.state.authType === "signup" && (
               <div className="row">
                 <div className="input-field col s12">
@@ -222,7 +221,7 @@ class Auth extends Component {
             </div>
             {this.renderButton()}
           </div>
-          <div className="col s2" />
+          <div className="col s1" />
         </div>
       </div>
     );

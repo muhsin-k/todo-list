@@ -1,4 +1,4 @@
 module.exports = {
   mongoURI: "mongodb://localhost/todo-list",
-  redisUrl: ""
+  redisUrl: "redis://127.0.0.1:6379"
 };
