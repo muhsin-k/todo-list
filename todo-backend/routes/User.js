@@ -12,8 +12,8 @@ module.exports = app => {
     });
 
     try {
-      await userResult= user.save();
-      console.log('userResult',userResult);
+      const userResult = await user.save();
+      console.log("userResult", userResult);
       const result = {
         _id: userResult._id,
         userName: userName

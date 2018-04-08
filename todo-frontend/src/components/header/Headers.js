@@ -49,7 +49,7 @@ class Header extends Component {
       >
         <div className="nav-wrapper">
           <a href="#!" className="brand-logo">
-            <img src={logo} />
+            <img alt="logo" src={logo} />
           </a>
 
           <ul className="right">{this.renderContent()}</ul>

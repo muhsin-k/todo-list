@@ -86,13 +86,14 @@ class Auth extends Component {
         localStorage.setItem("todoId", response.data._id);
         localStorage.setItem("todoUserName", response.data.userName);
         this.props.history.push("/home");
-        this.props.completeLogin();
+        // this.props.completeLogin();
       })
       .catch(e => {
         this.setState({
           errorMessage: "Invalid email id or password",
           showError: true
         });
+        console.log("Error", e);
         this.props.errorLogin({ errorMessage: "Invalid email id or password" });
       });
   }
@@ -161,7 +162,8 @@ class Auth extends Component {
     return (
       <div className="auth">
         <div className="row">
-          <div className="col s12">
+          <div className="col s2" />
+          <div className="col s8">
             {this.state.authType === "signup" && (
               <div className="row">
                 <div className="input-field col s12">
@@ -220,6 +222,7 @@ class Auth extends Component {
             </div>
             {this.renderButton()}
           </div>
+          <div className="col s2" />
         </div>
       </div>
     );

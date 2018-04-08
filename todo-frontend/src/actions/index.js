@@ -19,7 +19,6 @@ export const completeLogin = obj => async dispatch => {
   dispatch({ type: COMPLETE_AUTH });
 };
 export const errorLogin = obj => async dispatch => {
-  console.log("obj", obj);
   dispatch({ type: ERROR_AUTH, payload: obj.errorMessage });
 };
 export const checkLogin = obj => async dispatch => {

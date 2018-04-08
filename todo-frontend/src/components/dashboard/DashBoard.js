@@ -26,7 +26,7 @@ class Dashboard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showItemModal: true,
+      showItemModal: false,
       showConfirmModal: false,
       selectedItemId: null,
       todoText: null
@@ -41,6 +41,7 @@ class Dashboard extends Component {
   }
   openItemModal() {
     this.setState({ showItemModal: true });
+    console.log("State", this.state);
   }
   openConfirmModal(key) {
     this.setState({ showConfirmModal: true, selectedItemId: key.todoId });
@@ -90,6 +91,99 @@ class Dashboard extends Component {
       _user: localStorage.getItem("todoId")
     });
   }
+  renderAddButton() {
+    return (
+      <div className="fixed-action-btn">
+        <div
+          className="btn-floating btn-large red"
+          onClick={this.openItemModal}
+        >
+          <i className="material-icons">add</i>
+        </div>
+      </div>
+    );
+  }
+  renderModals() {
+    return (
+      <div>
+        <ReactModal
+          isOpen={this.state.showItemModal}
+          contentLabel="onRequestClose Example"
+          onRequestClose={this.handleCloseModal}
+          shouldCloseOnOverlayClick={false}
+          style={customStyles}
+        >
+          <div className="row text-center">
+            <h6>Add a new item</h6>
+          </div>
+          <input
+            type="text"
+            value={this.state.comment}
+            maxLength="28"
+            onChange={this.onTextChange.bind(this)}
+            placeholder="Write a comment..."
+          />
+          <div className="row">
+            <div className="col s6">
+              {" "}
+              <button
+                className="btn waves-effect waves-light todo-add-cancel"
+                type="submit"
+                name="action"
+                onClick={this.handleCloseModal}
+              >
+                Cancel
+              </button>
+            </div>
+            <div className="col s6">
+              <button
+                className="btn waves-effect waves-light todo-add-submit"
+                type="submit"
+                name="action"
+                onClick={this.onSubmitItemModal}
+              >
+                Save
+              </button>
+            </div>
+          </div>
+        </ReactModal>
+        <ReactModal
+          isOpen={this.state.showConfirmModal}
+          contentLabel="onRequestClose Example"
+          onRequestClose={this.handleCloseModal}
+          shouldCloseOnOverlayClick={false}
+          style={customStyles}
+        >
+          <div className="row text-center">
+            <h6>Are you sure?</h6>
+          </div>
+          <div className="row">
+            <div className="col s6">
+              {" "}
+              <button
+                className="btn waves-effect waves-light todo-add-cancel"
+                type="submit"
+                name="action"
+                onClick={this.handleCloseModal}
+              >
+                Cancel
+              </button>
+            </div>
+            <div className="col s6">
+              <button
+                className="btn waves-effect waves-light todo-add-submit"
+                type="submit"
+                name="action"
+                onClick={this.onSubmitConfirmModal}
+              >
+                Save
+              </button>
+            </div>
+          </div>
+        </ReactModal>
+      </div>
+    );
+  }
 
   renderItems() {
     if (this.props.items.allItems && this.props.items.allItems.length) {
@@ -105,90 +199,8 @@ class Dashboard extends Component {
               deleteItem={this.openConfirmModal.bind(this)}
             />
           ))}
-
-          <div className="fixed-action-btn">
-            <div
-              className="btn-floating btn-large red"
-              onClick={this.openItemModal}
-            >
-              <i className="material-icons">add</i>
-            </div>
-          </div>
-          <ReactModal
-            isOpen={this.state.showItemModal}
-            contentLabel="onRequestClose Example"
-            onRequestClose={this.handleCloseModal}
-            shouldCloseOnOverlayClick={false}
-            style={customStyles}
-          >
-            <div className="row text-center">
-              <h6>Add a new item</h6>
-            </div>
-            <input
-              type="text"
-              value={this.state.comment}
-              maxLength="28"
-              onChange={this.onTextChange.bind(this)}
-              placeholder="Write a comment..."
-            />
-            <div className="row">
-              <div className="col s6">
-                {" "}
-                <button
-                  className="btn waves-effect waves-light todo-add-cancel"
-                  type="submit"
-                  name="action"
-                  onClick={this.handleCloseModal}
-                >
-                  Cancel
-                </button>
-              </div>
-              <div className="col s6">
-                <button
-                  className="btn waves-effect waves-light todo-add-submit"
-                  type="submit"
-                  name="action"
-                  onClick={this.onSubmitItemModal}
-                >
-                  Save
-                </button>
-              </div>
-            </div>
-          </ReactModal>
-          <ReactModal
-            isOpen={this.state.showConfirmModal}
-            contentLabel="onRequestClose Example"
-            onRequestClose={this.handleCloseModal}
-            shouldCloseOnOverlayClick={false}
-            style={customStyles}
-          >
-            <div className="row text-center">
-              <h6>Are you sure?</h6>
-            </div>
-            <div className="row">
-              <div className="col s6">
-                {" "}
-                <button
-                  className="btn waves-effect waves-light todo-add-cancel"
-                  type="submit"
-                  name="action"
-                  onClick={this.handleCloseModal}
-                >
-                  Cancel
-                </button>
-              </div>
-              <div className="col s6">
-                <button
-                  className="btn waves-effect waves-light todo-add-submit"
-                  type="submit"
-                  name="action"
-                  onClick={this.onSubmitConfirmModal}
-                >
-                  Save
-                </button>
-              </div>
-            </div>
-          </ReactModal>
+          {this.renderAddButton()}
+          {this.renderModals()}
         </div>
       );
     } else {
@@ -196,15 +208,8 @@ class Dashboard extends Component {
         <div className="dashboard">
           <div className="empty-text">Your list is empty</div>
 
-          <div className="fixed-action-btn">
-            <div
-              to="/blogs/new"
-              className="btn-floating btn-large red"
-              onClick={this.openItemModal}
-            >
-              <i className="material-icons">add</i>
-            </div>
-          </div>
+          {this.renderAddButton()}
+          {this.renderModals()}
         </div>
       );
     }

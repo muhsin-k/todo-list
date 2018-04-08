@@ -12,9 +12,9 @@ const initialState = {
 export default function(state = initialState, action) {
   switch (action.type) {
     case COMPLETE_AUTH:
-      return { ...state, isFetching: false, isLogged: true };
+      return { ...state, isFetching: false, isLogged: true, errorMessage: "" };
     case INIT_AUTH:
-      return { ...state, isFetching: true };
+      return { ...state, isFetching: true, errorMessage: "" };
     case CHECK_AUTH:
       return { ...state, isFetching: false, isLogged: action.payload };
     case ERROR_AUTH:
