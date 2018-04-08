@@ -48,7 +48,7 @@ class Header extends Component {
         style={{ backgroundColor: "transparent !important" }}
       >
         <div className="nav-wrapper">
-          <a href="/home" className="brand-logo">
+          <a href="/" className="brand-logo">
             <img alt="logo" src={logo} />
           </a>
 
