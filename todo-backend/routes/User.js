@@ -12,9 +12,10 @@ module.exports = app => {
     });
 
     try {
-      await user.save();
+      await userResult= user.save();
+      console.log('userResult',userResult);
       const result = {
-        _id: emailId,
+        _id: userResult._id,
         userName: userName
       };
       res.status(200).json(result);

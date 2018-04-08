@@ -1,5 +1,6 @@
 export const INIT_AUTH = "init_auth";
 export const COMPLETE_AUTH = "complete_auth";
+export const CHECK_AUTH = "check_auth";
 export const ERROR_AUTH = "error_auth";
 export const INIT_ITEM_FETCH = "init_item_fetch";
 export const COMPLETE_ITEM_FETCH = "complete_item_fetch";

@@ -2,31 +2,27 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import "./Header.css";
+import { completeLogin } from "../../actions/index";
+
 const logo = require("../../assets/logo.png");
 class Header extends Component {
   constructor(props) {
     super(props);
     this.state = { logged: true };
-    this.onLogOut = this.onLogOut.bind(this);
   }
   componentDidMount() {
     if (localStorage.getItem("todoId")) {
-      this.setState({ logged: true });
+      this.props.completeLogin();
     } else {
-      this.setState({ logged: false });
     }
-  }
-  onLogOut() {
-    localStorage.clear();
-    this.props.history.push("/auth/login");
   }
   renderContent() {
     if (this.props.auth.isLogged) {
       return [
         <li key="2">
-          <a onClick={this.onLogOut} className="header-item">
+          <Link to="/auth/login" className="header-item">
             Logout
-          </a>
+          </Link>
         </li>
       ];
     } else {
@@ -63,8 +59,15 @@ class Header extends Component {
   }
 }
 
-function mapStateToProps({ auth }) {
-  return { auth };
+function bindAction(dispatch) {
+  return {
+    completeLogin: () => dispatch(completeLogin())
+  };
+}
+function mapStateToProps(state) {
+  return {
+    auth: state.auth
+  };
 }
 
-export default connect(mapStateToProps)(Header);
+export default connect(mapStateToProps, bindAction)(Header);

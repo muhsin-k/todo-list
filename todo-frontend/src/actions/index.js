@@ -2,6 +2,7 @@ import axios from "axios";
 import {
   INIT_AUTH,
   ERROR_AUTH,
+  CHECK_AUTH,
   COMPLETE_AUTH,
   ALL_ITEMS,
   INIT_ITEM_FETCH,
@@ -18,7 +19,15 @@ export const completeLogin = obj => async dispatch => {
   dispatch({ type: COMPLETE_AUTH });
 };
 export const errorLogin = obj => async dispatch => {
+  console.log("obj", obj);
   dispatch({ type: ERROR_AUTH, payload: obj.errorMessage });
+};
+export const checkLogin = obj => async dispatch => {
+  if (localStorage.getItem("todoId")) {
+    dispatch({ type: CHECK_AUTH, payload: true });
+  } else {
+    dispatch({ type: CHECK_AUTH, payload: false });
+  }
 };
 export const fetchAllItems = obj => async dispatch => {
   dispatch({ type: INIT_ITEM_FETCH });

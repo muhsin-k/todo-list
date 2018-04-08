@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
 
-import { initLogin, completeLogin, errorLogin } from "../../actions/index";
+import { initLogin, errorLogin, checkLogin } from "../../actions/index";
 import "./Auth.css";
 class Auth extends Component {
   constructor(props) {
@@ -93,8 +93,12 @@ class Auth extends Component {
           errorMessage: "Invalid email id or password",
           showError: true
         });
-        this.props.errorLogin(e);
+        this.props.errorLogin({ errorMessage: "Invalid email id or password" });
       });
+  }
+  componentDidMount() {
+    localStorage.clear();
+    this.props.checkLogin();
   }
   doSignup() {
     const requestUrl = "/api/user/signup";
@@ -106,7 +110,6 @@ class Auth extends Component {
     axios
       .post(requestUrl, obj)
       .then(response => {
-        console.log("Response: " + response);
         localStorage.setItem("todoId", response.data._id);
         localStorage.setItem("todoUserName", response.data.userName);
 
@@ -114,10 +117,10 @@ class Auth extends Component {
       })
       .catch(e => {
         this.setState({
-          errorMessage: "Email  already exist",
+          errorMessage: "Email already exist",
           showError: true
         });
-        console.log("Error: " + e);
+        this.props.errorLogin({ errorMessage: "Email already exist" });
       });
   }
   renderButton() {
@@ -225,12 +228,11 @@ class Auth extends Component {
 function bindAction(dispatch) {
   return {
     initLogin: () => dispatch(initLogin()),
-    completeLogin: () => dispatch(initLogin()),
-    errorLogin: obj => dispatch(errorLogin(obj))
+    errorLogin: obj => dispatch(errorLogin(obj)),
+    checkLogin: () => dispatch(checkLogin())
   };
 }
 function mapStateToProps(state) {
-  console.log("Store-->", state.auth);
   return {
     auth: state.auth
   };

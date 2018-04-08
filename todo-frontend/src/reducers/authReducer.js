@@ -1,8 +1,13 @@
-import { COMPLETE_AUTH, INIT_AUTH, ERROR_AUTH } from "../actions/types";
+import {
+  COMPLETE_AUTH,
+  INIT_AUTH,
+  ERROR_AUTH,
+  CHECK_AUTH
+} from "../actions/types";
 const initialState = {
   isFetching: false,
   errorMessage: "",
-  isLogged: true
+  isLogged: false
 };
 export default function(state = initialState, action) {
   switch (action.type) {
@@ -10,10 +15,12 @@ export default function(state = initialState, action) {
       return { ...state, isFetching: false, isLogged: true };
     case INIT_AUTH:
       return { ...state, isFetching: true };
+    case CHECK_AUTH:
+      return { ...state, isFetching: false, isLogged: action.payload };
     case ERROR_AUTH:
       return {
         ...state,
-        isFetching: true,
+        isFetching: false,
 
         errorMessage: action.payload
       };

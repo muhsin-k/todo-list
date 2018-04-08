@@ -1,16 +1,11 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import { connect } from "react-redux";
-import * as actions from "../actions";
 
 import Header from "./header/Headers";
-// import Landing from "./landing/Landing";
 import Dashboard from "./dashboard/DashBoard";
 import Auth from "./auth/Auth";
 import "./styles.css";
 class App extends Component {
-  componentDidMount() {}
-
   render() {
     return (
       <div className="container ">
@@ -25,7 +20,7 @@ class App extends Component {
                   <Auth key={props.match.params.type} {...props} />
                 )}
               />
-              <Route path="/" component={Auth} />
+              <Route path="/" component={Dashboard} />
             </Switch>
           </div>
         </BrowserRouter>
@@ -40,4 +35,4 @@ class App extends Component {
   }
 }
 
-export default connect(null, actions)(App);
+export default App;

@@ -6,7 +6,8 @@ import {
   fetchAllItems,
   updateItem,
   deleteItem,
-  addItem
+  addItem,
+  checkLogin
 } from "../../actions/index";
 import "./DashBoard.css";
 ReactModal.setAppElement("#root");
@@ -75,6 +76,7 @@ class Dashboard extends Component {
   }
 
   componentDidMount() {
+    this.props.checkLogin();
     if (localStorage.getItem("todoId")) {
       this.props.fetchAllItems({ userId: localStorage.getItem("todoId") });
     } else {
@@ -237,11 +239,12 @@ function bindAction(dispatch) {
     fetchAllItems: obj => dispatch(fetchAllItems(obj)),
     addItem: obj => dispatch(addItem(obj)),
     updateItem: obj => dispatch(updateItem(obj)),
-    deleteItem: obj => dispatch(deleteItem(obj))
+    deleteItem: obj => dispatch(deleteItem(obj)),
+    checkLogin: () => dispatch(checkLogin())
   };
 }
 function mapStateToProps(state) {
-  return { items: state.items };
+  return { items: state.items, auth: state.auth };
 }
 
 export default connect(mapStateToProps, bindAction)(Dashboard);
