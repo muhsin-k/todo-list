@@ -64,7 +64,7 @@ yarn run start
 
 * [x] Confirm box for delete item
 * [ ] Edit items
-* [ ] Change Form validation [https://github.com/gcanti/tcomb-form
+* [ ] Change Form validation [https://github.com/gcanti/tcomb-form]
 * [ ] Implement Passport for authentication.
 * [ ] Code beautification
 * [ ] Divide active and non-active items
